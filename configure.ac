@@ -1,6 +1,7 @@
-dnl $Id: configure.ac,v 1.1 2004/04/11 02:29:25 erik Exp $
+dnl $Id: configure.ac,v 1.2 2004/04/11 02:29:48 erik Exp $
 
-AC_INIT(src/rand.c)
+AC_INIT
+AC_CONFIG_SRCDIR([src/rand.c])
 AM_CONFIG_HEADER(config.h)
 AM_INIT_AUTOMAKE(rand, 1.8)
 
@@ -26,4 +27,5 @@ AC_SUBST(CHECK_LIBS)
 AC_SUBST(TEST)
 AC_SUBST(COVERAGE_CFLAGS)
 
-AC_OUTPUT(Makefile po/Makefile.in docs/Makefile src/Makefile test/Makefile rand.spec rand.lsm docs/doxygen.conf)
+AC_CONFIG_FILES([Makefile po/Makefile.in docs/Makefile src/Makefile test/Makefile rand.spec rand.lsm docs/doxygen.conf])
+AC_OUTPUT
