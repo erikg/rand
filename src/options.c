@@ -24,7 +24,7 @@
  ******************************************************************************/
 
 /*
- * $Id: options.c,v 1.8 2004/02/16 14:52:04 erik Exp $
+ * $Id: options.c,v 1.9 2004/02/16 17:25:07 erik Exp $
  */
 
 #include <stdio.h>
@@ -49,6 +49,13 @@
 
 FILE *io_pipes[2];
 
+/**
+ * Parse the command line options
+ * \param argc The number of arguments.
+ * \param argv The arguments as char**.
+ * \return The method type.
+ * \author Erik Greenwald <erik@smluc.org>
+ */
 unsigned char
 options (int argc, char **argv)
 {
@@ -68,14 +75,14 @@ options (int argc, char **argv)
 		return EXIT_FAILURE;
 	    }
 	    break;
-	case 'o':		/* TODO file mode needs to be fixed */
+	case 'o':
 	    if ((io_pipes[1] =
 		    fopen (optarg, "w")) == NULL)
 	    {
 		fprintf (stderr, _("Cannot open %s for writing\n"), optarg);
 		return EXIT_FAILURE;
 	    }
-	    chmod(optarg, 0644);
+	    chmod(optarg, 0600);
 	    break;		/*oops, thanks to Tim Clapin for pointing out this ommision */
 	case 'l':
 	    method = LINE;

@@ -24,7 +24,7 @@
  ******************************************************************************/
 
 /*
- * $Id: rand.c,v 1.10 2004/02/16 14:31:07 erik Exp $
+ * $Id: rand.c,v 1.11 2004/02/16 17:25:07 erik Exp $
  */
 
 /* NOTE: the method I'm using to get a random number LOOKS ineffecient. But
@@ -72,7 +72,13 @@
 #define NOMEM _("Abort: could not allocate memory\n")
 
 
-   /*** scramble function, for io_pipes and files (not parm) ***/
+   /**
+    * scramble function, for io_pipes and files (not parm).
+    * \param method The method type, as defined in the enum.
+    * \return Void Nothing.
+    * \author Erik Greenwald <erik@smluc.org>
+    * \remarks Thanks to Dr Eric Shade for helping out.
+    */
 void
 scramble (char method)
 {

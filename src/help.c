@@ -24,7 +24,7 @@
  ******************************************************************************/
 
 /*
- * $Id: help.c,v 1.7 2004/02/16 14:31:07 erik Exp $
+ * $Id: help.c,v 1.8 2004/02/16 17:25:06 erik Exp $
  */
 
 #include <stdio.h>
@@ -45,6 +45,10 @@
 
 #include "help.h"
 
+/** Print version and help info to stdout.
+ * \param void This funtion takes no parameters
+ * \return This function returns void.
+ */
 void
 show_help ()
 {
@@ -62,6 +66,12 @@ Usage:\n\
 	(" -l\t\tDisplay lines in random order\n -w\t\tDisplay words in random order\n\n"));
 }
 
+
+/**
+ * Print the version to stdout.
+ * \param void This funtion takes no parameters
+ * \return This function returns void.
+ */
 void
 show_version ()
 {

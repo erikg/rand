@@ -24,7 +24,7 @@
  ******************************************************************************/
 
 /*
- * $Id: seed.c,v 1.4 2004/02/16 14:31:07 erik Exp $
+ * $Id: seed.c,v 1.5 2004/02/16 17:25:07 erik Exp $
  */
 
 #include <stdio.h>
@@ -34,6 +34,13 @@
 #include <time.h>
 #include "seed.h"
 
+/*
+ * Write out the random seed. This is done on each pass per euid, so if an
+ * effective user wants to recover the last random seed, there is a place to
+ * extract it from.
+ * \param void No parameters accepted.
+ * \return Void. Nothing returned.
+ */
 void
 seed_rand ()
 {
@@ -56,6 +63,9 @@ seed_rand ()
     return;
 }
 
+/**
+ * I have no clue why this is here.
+ */
 old_seed ()
 {
     unsigned int seed;
@@ -70,6 +80,11 @@ old_seed ()
     return;
 }
 
+/**
+ * Seed a random number.
+ * \param arg eh?
+ * \return Void... Nothing returned.
+ */
 void
 seed (char *arg)
 {
