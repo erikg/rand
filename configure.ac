@@ -1,4 +1,4 @@
-dnl $Id: configure.in,v 1.10 2004/02/22 18:01:43 erik Exp $
+dnl $Id: configure.ac,v 1.1 2004/04/11 02:29:25 erik Exp $
 
 AC_INIT(src/rand.c)
 AM_CONFIG_HEADER(config.h)
