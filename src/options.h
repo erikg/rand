@@ -1,3 +1,4 @@
+
 /*****************************************************************************
  *    rand : write a randomization of files or stdin or parms to stdout
  *    Usage:
@@ -26,9 +27,9 @@
 #define __OPTIONS_H_
 
 enum {
-	LINE,
-	WORD,
-	ERR
+    LINE,
+    WORD,
+    ERR
 };
 
 extern unsigned int io_pipes[2];	/* ick. */

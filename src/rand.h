@@ -1,3 +1,4 @@
+
 /*****************************************************************************
  *    rand : write a randomization of files or stdin or parms to stdout
  *    Usage:
@@ -23,11 +24,9 @@
  ******************************************************************************/
 
    /*** struct for the linked lists ***/
-struct ll
-{
-  char *data;
-  struct ll *next;
+struct ll {
+    char *data;
+    struct ll *next;
 };
 
 void scramble (char method);
-

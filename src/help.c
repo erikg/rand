@@ -1,3 +1,4 @@
+
 /*****************************************************************************
  *    rand : write a randomization of files or stdin or parms to stdout
  *    Usage:

@@ -1,3 +1,4 @@
+
 /*****************************************************************************
  *    rand : write a randomization of files or stdin or parms to stdout
  *    Usage:
@@ -29,42 +30,50 @@
 #include <time.h>
 #include "seed.h"
 
-void seed_rand()
+void
+seed_rand ()
 {
-  unsigned int seed;
-  FILE *f;
-  char s[1024];
-  /* seed the entropy pool from here, so we can override it */
-  /* thanks to Martin Hinsch for the +time(0) */
-  seed = ((unsigned int) (getpid () + time (NULL)));
-  srand(seed);
-  sprintf(s,"/var/tmp/rand.%d",geteuid());
-  f = fopen(s,"w");
-  fprintf(f,"%u\n", seed);
-  fclose(f);
-  return;
+    unsigned int seed;
+    FILE *f;
+    char s[1024];
+
+    /*
+     * seed the entropy pool from here, so we can override it 
+     */
+    /*
+     * thanks to Martin Hinsch for the +time(0) 
+     */
+    seed = ((unsigned int)(getpid () + time (NULL)));
+    srand (seed);
+    sprintf (s, "/var/tmp/rand.%d", geteuid ());
+    f = fopen (s, "w");
+    fprintf (f, "%u\n", seed);
+    fclose (f);
+    return;
 }
 
-old_seed()
+old_seed ()
 {
-  unsigned int seed;
-  FILE *f;
-  char s[1024];
-  sprintf(s,"/var/tmp/rand.%d",geteuid());
-  f = fopen(s,"r");
-  fscanf(f,"%u\n", &seed);
-  fclose(f);
-  srand(seed);
-  return;
+    unsigned int seed;
+    FILE *f;
+    char s[1024];
+
+    sprintf (s, "/var/tmp/rand.%d", geteuid ());
+    f = fopen (s, "r");
+    fscanf (f, "%u\n", &seed);
+    fclose (f);
+    srand (seed);
+    return;
 }
 
-void seed(char *arg)
+void
+seed (char *arg)
 {
-  if(arg==NULL)
-    seed_rand();
-  else if(arg[0]=='.')
-    old_seed();
-  else 
-    srand(atoi(arg));
-  return;
+    if (arg == NULL)
+	seed_rand ();
+    else if (arg[0] == '.')
+	old_seed ();
+    else
+	srand (atoi (arg));
+    return;
 }

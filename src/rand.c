@@ -1,3 +1,4 @@
+
 /*****************************************************************************
  *    rand : write a randomization of files or stdin or parms to stdout
  *    Usage:
@@ -71,134 +72,139 @@
 void
 scramble (char method)
 {
-  char *blah = NULL, **table = NULL;
-  struct ll *llist = NULL, *ptr = NULL;
-  int size = 0, n = 0, x = 0;
+    char *blah = NULL, **table = NULL;
+    struct ll *llist = NULL, *ptr = NULL;
+    int size = 0, n = 0, x = 0;
 
-  if (method == LINE || method == WORD)
+    if (method == LINE || method == WORD)
     {
-      llist = malloc (sizeof (struct ll));
-      if (llist == NULL)
+	llist = malloc (sizeof (struct ll));
+	if (llist == NULL)
 	{
-	  printf ("%s", NOMEM);
-	  return;
+	    printf ("%s", NOMEM);
+	    return;
 	}
 
-      blah = (char *) malloc (sizeof (char) * 1024);
-      if (blah == NULL)
+	blah = (char *)malloc (sizeof (char) * 1024);
+	if (blah == NULL)
 	{
-	  printf ("%s", NOMEM);
-	  free (llist);
-	  return;
+	    printf ("%s", NOMEM);
+	    free (llist);
+	    return;
 	}
 
-      llist->data = NULL;
-      ptr = llist;
+	llist->data = NULL;
+	ptr = llist;
+
 			   /*** make linked list     ***/
-      if (method == LINE)
+	if (method == LINE)
 	{
-	  while (fgets (blah, 1024, io_pipes[0]))
+	    while (fgets (blah, 1024, io_pipes[0]))
 	    {
-	      struct ll *m = malloc (sizeof (struct ll));
-	      if (m == NULL)
+		struct ll *m = malloc (sizeof (struct ll));
+
+		if (m == NULL)
 		{
-		  printf ("%s", NOMEM);
-		  return;
+		    printf ("%s", NOMEM);
+		    return;
 		}
-	      m->data = malloc (strlen (blah) * sizeof (char) + 2);
-	      if (m->data == NULL)
+		m->data = malloc (strlen (blah) * sizeof (char) + 2);
+		if (m->data == NULL)
 		{
-		  printf ("%s", NOMEM);
-		  return;
+		    printf ("%s", NOMEM);
+		    return;
 		}
-	      memcpy (m->data, blah, strlen (blah) * sizeof (char) + 1);
-	      m->data[strlen (m->data) - 1] = (char) 0;
-	      m->next = NULL;
-	      ptr->next = m;
-	      ptr = m;
-	      size++;
+		memcpy (m->data, blah, strlen (blah) * sizeof (char) + 1);
+		m->data[strlen (m->data) - 1] = (char)0;
+		m->next = NULL;
+		ptr->next = m;
+		ptr = m;
+		size++;
 	    }
 	}
-      if (method == WORD)
+	if (method == WORD)
 	{
-	  while (fscanf (io_pipes[0], "%s", blah) != EOF)
+	    while (fscanf (io_pipes[0], "%s", blah) != EOF)
 	    {
-	      struct ll *m = malloc (sizeof (struct ll));
-	      if (m == NULL)
+		struct ll *m = malloc (sizeof (struct ll));
+
+		if (m == NULL)
 		{
-		  printf ("%s", NOMEM);
-		  free (blah);
-		  return;
+		    printf ("%s", NOMEM);
+		    free (blah);
+		    return;
 		}
-	      m->data = malloc (strlen (blah) * sizeof (char) + 2);
-	      if (m->data == NULL)
+		m->data = malloc (strlen (blah) * sizeof (char) + 2);
+		if (m->data == NULL)
 		{
-		  printf ("%s", NOMEM);
-		  free (m);
-		  free (blah);
-		  return;
+		    printf ("%s", NOMEM);
+		    free (m);
+		    free (blah);
+		    return;
 		}
-	      memcpy (m->data, blah, strlen (blah) * sizeof (char) + 1);
-	      m->next = NULL;
-	      ptr->next = m;
-	      ptr = m;
-	      size++;
+		memcpy (m->data, blah, strlen (blah) * sizeof (char) + 1);
+		m->next = NULL;
+		ptr->next = m;
+		ptr = m;
+		size++;
 	    }
 	}
 
 	   /*** make table from list ***/
 
-      if (size == 0)
+	if (size == 0)
 	{
-	  free (blah);
-	  return;
+	    free (blah);
+	    return;
 	}
-      table = malloc (size * sizeof (void *));
-      if (table == NULL)
+	table = malloc (size * sizeof (void *));
+	if (table == NULL)
 	{
-	  printf ("%s", NOMEM);
-	  free (blah);
-	  return;
+	    printf ("%s", NOMEM);
+	    free (blah);
+	    return;
 	}
-      ptr = llist->next;
-      for (x = 0; x < size; x++)
+	ptr = llist->next;
+	for (x = 0; x < size; x++)
 	{
-	  table[x] = ptr->data;
-	  ptr = ptr->next;
+	    table[x] = ptr->data;
+	    ptr = ptr->next;
 	}
     }
 
-  /* shuffle it  (thanks to Dr Shade) */
-  n = size;
+    /*
+     * shuffle it  (thanks to Dr Shade) 
+     */
+    n = size;
 
-  while (n > 1)
+    while (n > 1)
     {
-      int d = ((double) rand () / RAND_MAX) * n;
-      char *temp = table[d];
-      table[d] = table[n - 1];
-      table[n - 1] = temp;
-      --n;
+	int d = ((double)rand () / RAND_MAX) * n;
+	char *temp = table[d];
+
+	table[d] = table[n - 1];
+	table[n - 1] = temp;
+	--n;
     }
 
    /*** print it   ***/
 
-  while (size--)
+    while (size--)
     {
-      fprintf (io_pipes[1], "%s\n", table[size]);
-      free(table[size]);
+	fprintf (io_pipes[1], "%s\n", table[size]);
+	free (table[size]);
     }
 
    /*** delete the linked list and clean up ***/
 
-  ptr = llist->next;
-  while (ptr)
+    ptr = llist->next;
+    while (ptr)
     {
-      free (llist);
-      llist = ptr;
-      ptr = ptr->next;
+	free (llist);
+	llist = ptr;
+	ptr = ptr->next;
     }
-  free (blah);
-  free (table);
-  return;
+    free (blah);
+    free (table);
+    return;
 }
-

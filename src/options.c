@@ -1,3 +1,4 @@
+
 /*****************************************************************************
  *    rand : write a randomization of files or stdin or parms to stdout
  *    Usage:
@@ -47,44 +48,45 @@ unsigned int io_pipes[2];
 unsigned char
 options (int argc, char **argv)
 {
-  int c;
-  unsigned char method = LINE;
+    int c;
+    unsigned char method = LINE;
 
-  while ((c = getopt (argc, argv, "f:o:lws:hv")) != EOF)
-    switch ((char) c)
-      {
-      case 'f':
-	if ((io_pipes[0] = open (optarg, O_RDONLY)) == NULL)
-	  {
-	    fprintf (stderr, _("Cannot open %s for reading\n"), optarg);
-	    return EXIT_FAILURE;
-	  }
-	break;
-      case 'o':	/* TODO file mode needs to be fixed */
-	if ((io_pipes[1] = open (optarg, O_WRONLY|O_TRUNC|O_CREAT, 0644)) == NULL)
-	  {
-	    fprintf (stderr, _("Cannot open %s for writing\n"), optarg);
-	    return EXIT_FAILURE;
-	  }
-	break;	/*oops, thanks to Tim Clapin for pointing out this ommision */
-      case 'l':
-	method = LINE;
-	break;
-      case 'w':
-	method = WORD;
-	break;
-      case 's':
-        seed(optarg);
-	break;
-      case 'v':
-	show_version ();
-	exit(EXIT_SUCCESS);
-      case 'h':
-	show_help ();
-	exit(EXIT_SUCCESS);
-      default:
-	show_help ();
-	exit(EXIT_FAILURE);
-      }
-  return method;
+    while ((c = getopt (argc, argv, "f:o:lws:hv")) != EOF)
+	switch ((char)c)
+	{
+	case 'f':
+	    if ((io_pipes[0] = open (optarg, O_RDONLY)) == NULL)
+	    {
+		fprintf (stderr, _("Cannot open %s for reading\n"), optarg);
+		return EXIT_FAILURE;
+	    }
+	    break;
+	case 'o':		/* TODO file mode needs to be fixed */
+	    if ((io_pipes[1] =
+		    open (optarg, O_WRONLY | O_TRUNC | O_CREAT, 0644)) == NULL)
+	    {
+		fprintf (stderr, _("Cannot open %s for writing\n"), optarg);
+		return EXIT_FAILURE;
+	    }
+	    break;		/*oops, thanks to Tim Clapin for pointing out this ommision */
+	case 'l':
+	    method = LINE;
+	    break;
+	case 'w':
+	    method = WORD;
+	    break;
+	case 's':
+	    seed (optarg);
+	    break;
+	case 'v':
+	    show_version ();
+	    exit (EXIT_SUCCESS);
+	case 'h':
+	    show_help ();
+	    exit (EXIT_SUCCESS);
+	default:
+	    show_help ();
+	    exit (EXIT_FAILURE);
+	}
+    return method;
 }

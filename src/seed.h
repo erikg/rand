@@ -1,3 +1,4 @@
+
 /*****************************************************************************
  *    rand : write a randomization of files or stdin or parms to stdout
  *    Usage:
@@ -25,6 +26,6 @@
 #ifndef __SEED_H_
 #define __SEED_H_
 
-void seed(char *arg);
+void seed (char *arg);
 
 #endif

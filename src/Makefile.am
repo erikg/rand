@@ -12,3 +12,5 @@ lint:
 indent:
 	indent rand.c
 
+gindent:
+	gindent ${rand_SOURCES} ${noinst_HEADERS}
