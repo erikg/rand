@@ -1,6 +1,6 @@
 Begin3
-Title:          rand
-Version:        1.8
+Title:          @PACKAGE@
+Version:        @VERSION@
 Entered-date:   Jan 16 1998
 Description:    utility to display files or streams in random order
 Keywords:       random pipe sort shuffle order

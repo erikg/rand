@@ -10,4 +10,4 @@ AC_PROG_INSTALL
 
 AC_CHECK_HEADERS(unistd.h stdio.h stdlib.h string.h time.h)
 
-AC_OUTPUT(Makefile po/Makefile.in man/Makefile src/Makefile rand.spec)
+AC_OUTPUT(Makefile po/Makefile.in man/Makefile src/Makefile rand.spec rand.lsm)

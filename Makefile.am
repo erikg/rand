@@ -1,6 +1,6 @@
 SUBDIRS = po man src
 
-EXTRA_DIST=ChangeLog $(PACKAGE).spec
+EXTRA_DIST=ChangeLog $(PACKAGE).spec.in rand.lsm.in
 
 .PHONY : rpm
 rpm: dist
