@@ -1,4 +1,4 @@
-dnl $Id: configure.ac,v 1.5 2004/07/05 14:55:24 erik Exp $
+dnl $Id: configure.ac,v 1.6 2004/07/25 14:58:04 erik Exp $
 
 AC_INIT
 AC_CONFIG_SRCDIR([src/rand.c])
@@ -54,5 +54,5 @@ AC_CHECK_HEADERS(unistd.h stdio.h stdlib.h string.h time.h)
 #AC_SUBST(COVERAGE_CFLAGS)
 
 #AC_CONFIG_FILES([Makefile po/Makefile.in docs/Makefile src/Makefile test/Makefile rand.spec rand.lsm docs/doxygen.conf])
-AC_CONFIG_FILES([Makefile po/Makefile.in docs/Makefile src/Makefile rand.spec rand.lsm docs/doxygen.conf m4/Makefile ])
+AC_CONFIG_FILES([Makefile po/Makefile.in docs/Makefile src/Makefile rand.spec rand.lsm docs/doxygen.conf m4/Makefile  po/Makefile.in ])
 AC_OUTPUT
