@@ -1,4 +1,4 @@
-dnl $Id: configure.ac,v 1.4 2004/07/05 14:10:15 erik Exp $
+dnl $Id: configure.ac,v 1.5 2004/07/05 14:55:24 erik Exp $
 
 AC_INIT
 AC_CONFIG_SRCDIR([src/rand.c])
@@ -35,7 +35,7 @@ fi
 dnl end of seans brlcad stuff
 
 ALL_LINGUAS="en en_AU en_CA en_GB en_IE en_US pt pt_BR"
-AM_GNU_GETTEXT(external, need-ngettext)
+AM_GNU_GETTEXT([external])
 if test "$USE_NLS" = "no" 
 then
 	AC_DEFINE(gettext,,No gettext)
@@ -54,5 +54,5 @@ AC_CHECK_HEADERS(unistd.h stdio.h stdlib.h string.h time.h)
 #AC_SUBST(COVERAGE_CFLAGS)
 
 #AC_CONFIG_FILES([Makefile po/Makefile.in docs/Makefile src/Makefile test/Makefile rand.spec rand.lsm docs/doxygen.conf])
-AC_CONFIG_FILES([Makefile po/Makefile.in docs/Makefile src/Makefile rand.spec rand.lsm docs/doxygen.conf])
+AC_CONFIG_FILES([Makefile po/Makefile.in docs/Makefile src/Makefile rand.spec rand.lsm docs/doxygen.conf m4/Makefile ])
 AC_OUTPUT

@@ -1,8 +1,8 @@
-# $Id: Makefile.am,v 1.10 2004/07/05 14:09:51 erik Exp $
+# $Id: Makefile.am,v 1.11 2004/07/05 14:55:24 erik Exp $
 
 bin_PROGRAMS = rand
 rand_SOURCES = main.c rand.c seed.c help.c options.c
-rand_LDADD   = @INTLLIBS@ 
+rand_LDADD   = @LIBINTL@ 
 
 noinst_HEADERS = rand.h seed.h help.h options.h
 

@@ -7,7 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: rand 1.8\n"
-"POT-Creation-Date: 2000-09-03 12:03-0500\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-07-05 10:45-0400\n"
 "PO-Revision-Date: 2000-06-07 12:13:27\n"
 "Last-Translator: Rodrigo Parra Novo <rodarvus@conectiva.com.br>\n"
 "Language-Team: UNKNOWN <UNKNOWN>\n"
@@ -15,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=ISO-8859-1\n"
 "Content-Transfer-Encoding: 8-BITS\n"
 
-#: src/rand.c:207
+#: src/help.c:49
 #, fuzzy, c-format
 msgid ""
 "%s %s (C) 1998-2004 Erik Greenwald <erik@math.smsu.edu>\n"
@@ -34,8 +35,8 @@ msgstr ""
 "\t<comando> | %s [-lw] [-o <arquivo de saída>]\n"
 "\t%s [-lwvh] [-f <arquivo de entrada>] [-o <arquivo de saída>]\n"
 
-#: src/rand.c:216
-#, fuzzy
+#: src/help.c:58
+#, fuzzy, c-format
 msgid ""
 " -l\t\tDisplay lines in random order\n"
 " -w\t\tDisplay words in random order\n"
@@ -44,17 +45,21 @@ msgstr ""
 " -l\t\tMostra linhas em ordem randômica\n"
 " -w\t\tMostra palavras em ordem randômica\n"
 
-#: src/rand.c:224
+#: src/help.c:70
 #, fuzzy, c-format
 msgid "%s %s (C) 1998-2004 Erik Greenwald <erik@math.smsu.edu>\n"
 msgstr "%s %s (C) 1998-2004 Erik Greenwald <erik@math.smsu.edu>\n"
 
-#: src/rand.c:259
+#: src/options.c:72
 #, c-format
 msgid "Cannot open %s for reading\n"
 msgstr "Nao foi possível abrir %s para leitura\n"
 
-#: src/rand.c:272
+#: src/options.c:80
 #, c-format
 msgid "Cannot open %s for writing\n"
 msgstr "Nao foi possível abrir %s para escrita\n"
+
+#: src/rand.c:66
+msgid "Abort: could not allocate memory\n"
+msgstr ""
