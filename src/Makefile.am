@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.9 2004/02/16 14:31:07 erik Exp $
+# $Id: Makefile.am,v 1.10 2004/07/05 14:09:51 erik Exp $
 
 bin_PROGRAMS = rand
 rand_SOURCES = main.c rand.c seed.c help.c options.c
@@ -16,3 +16,6 @@ indent:
 
 gindent:
 	gindent ${rand_SOURCES} ${noinst_HEADERS}
+
+grind: rand
+	/bin/ls | valgrind --leak-check=yes -v --show-reachable=yes --track-fds=yes --gdb-attach=yes ./rand 2> ../dump
