@@ -24,7 +24,7 @@
  ******************************************************************************/
 
 /*
- * $Id: options.c,v 1.11 2004/02/17 00:20:53 erik Exp $
+ * $Id: options.c,v 1.12 2004/02/18 00:01:46 erik Exp $
  */
 
 #include <stdio.h>
@@ -36,11 +36,10 @@
 #ifdef HAVE_GETTEXT
 # include <locale.h>
 # include <libintl.h>
-# ifndef _
-#  define _(String) gettext(String)
-# endif
-#else
-# define _(String) String
+#endif
+
+#ifdef HAVE_CONFIG_H
+#include "config.h"
 #endif
 
 #include "help.h"

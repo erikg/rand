@@ -24,7 +24,7 @@
  ******************************************************************************/
 
 /*
- * $Id: rand.c,v 1.13 2004/02/17 00:20:53 erik Exp $
+ * $Id: rand.c,v 1.14 2004/02/18 00:01:46 erik Exp $
  */
 
 /* NOTE: the method I'm using to get a random number LOOKS ineffecient. But
@@ -52,11 +52,6 @@
 #ifdef HAVE_GETTEXT
 # include <locale.h>
 # include <libintl.h>
-# ifndef _
-#  define _(String) gettext(String)
-# endif
-#else
-# define _(String) String
 #endif
 
 #ifdef HAVE_CONFIG_H
