@@ -1,4 +1,5 @@
 AC_INIT(src/rand.c)
+AM_CONFIG_HEADER(config.h)
 AM_INIT_AUTOMAKE(rand, 1.8)
 
 ALL_LINGUAS="en en_AU en_CA en_GB en_IE en_US pt pt_BR"
