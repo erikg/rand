@@ -1,4 +1,4 @@
-dnl $Id: configure.ac,v 1.2 2004/04/11 02:29:48 erik Exp $
+dnl $Id: configure.ac,v 1.3 2004/04/11 17:22:09 erik Exp $
 
 AC_INIT
 AC_CONFIG_SRCDIR([src/rand.c])
@@ -17,14 +17,11 @@ AC_PROG_INSTALL
 
 AC_CHECK_HEADERS(unistd.h stdio.h stdlib.h string.h time.h)
 
-COVERAGE_CFLAGS=
-AM_PATH_CHECK(,[
-		TEST=test
-		COVERAGE_CFLAGS="-fprofile-arcs -ftest-coverage"
-		] ,TEST=)
+COVERAGE_CFLAGS="-fprofile-arcs -ftest-coverage"
+AM_PATH_CHECK(,have_test=yes,have_test=no)
+AM_CONDITIONAL(TEST, [test x"$have_test" = xyes])
 AC_SUBST(CHECK_CFLAGS)
 AC_SUBST(CHECK_LIBS)
-AC_SUBST(TEST)
 AC_SUBST(COVERAGE_CFLAGS)
 
 AC_CONFIG_FILES([Makefile po/Makefile.in docs/Makefile src/Makefile test/Makefile rand.spec rand.lsm docs/doxygen.conf])

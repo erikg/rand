@@ -1,7 +1,11 @@
-# $Id: Makefile.am,v 1.9 2004/02/16 17:26:36 erik Exp $
+# $Id: Makefile.am,v 1.10 2004/04/11 17:22:09 erik Exp $
 #
 
-SUBDIRS = po src docs @TEST@
+if HAVE_TEST
+TEST=test
+endif
+
+SUBDIRS = po src docs $(TEST)
 
 EXTRA_DIST=ChangeLog $(PACKAGE).spec.in rand.lsm.in
 
