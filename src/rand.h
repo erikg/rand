@@ -23,7 +23,11 @@
  *
  ******************************************************************************/
 
-   /*** struct for the linked lists ***/
+/*
+ * $Id: rand.h,v 1.4 2004/02/16 14:31:07 erik Exp $
+ */
+
+/*** struct for the linked lists ***/
 struct ll {
     char *data;
     struct ll *next;

@@ -1,3 +1,5 @@
+dnl $Id: configure.in,v 1.6 2004/02/16 14:31:07 erik Exp $
+
 AC_INIT(src/rand.c)
 AM_CONFIG_HEADER(config.h)
 AM_INIT_AUTOMAKE(rand, 1.8)
@@ -10,4 +12,9 @@ AC_PROG_INSTALL
 
 AC_CHECK_HEADERS(unistd.h stdio.h stdlib.h string.h time.h)
 
-AC_OUTPUT(Makefile po/Makefile.in man/Makefile src/Makefile rand.spec rand.lsm)
+AM_PATH_CHECK(,TEST=test,TEST=)
+AC_SUBST(CHECK_CFLAGS)
+AC_SUBST(CHECK_LIBS)
+AC_SUBST(TEST)
+
+AC_OUTPUT(Makefile po/Makefile.in man/Makefile src/Makefile test/Makefile rand.spec rand.lsm)

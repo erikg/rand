@@ -1,4 +1,7 @@
-SUBDIRS = po man src
+# $Id: Makefile.am,v 1.6 2004/02/16 14:31:07 erik Exp $
+#
+
+SUBDIRS = po man src @TEST@
 
 EXTRA_DIST=ChangeLog $(PACKAGE).spec.in rand.lsm.in
 
@@ -23,3 +26,6 @@ lint:
 	make -C src lint
 indent:
 	make -C src indent
+
+test:
+	make -C test test

@@ -23,6 +23,10 @@
  *
  ******************************************************************************/
 
+/*
+ * $Id: rand.c,v 1.10 2004/02/16 14:31:07 erik Exp $
+ */
+
 /* NOTE: the method I'm using to get a random number LOOKS ineffecient. But
  * that's on purpose. random number generators tend to make the most 
  * significant bits the most random, and the least significant the least
