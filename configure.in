@@ -15,4 +15,4 @@ AC_CHECK_HEADERS(unistd.h stdio.h stdlib.h string.h time.h)
 
 AM_GNU_GETTEXT
 
-AC_OUTPUT(Makefile po/Makefile.in intl/Makefile man/Makefile src/Makefile)
+AC_OUTPUT(Makefile po/Makefile.in intl/Makefile man/Makefile src/Makefile rand.spec)

@@ -1,13 +1,13 @@
 Summary: A pipe utility that randomizes the stream.
-Name: rand
-Version: 1.8
+Name: @PACKAGE@
+Version: @VERSION@
 Release: 1
 Copyright: GPL
 Vendor: Erik Greenwald
 Url: http://math.smsu.edu/~erik/software.php?id=7
 Group: Applications/Text
-Source0: http://math.smsu.edu/~erik/files/rand-1.8.tar.gz
-Buildroot: /var/tmp/rand
+Source0: http://math.smsu.edu/~erik/files/@PACKAGE@-@VERSION@.tar.gz
+Buildroot: /var/tmp/@PACKAGE@
 
 %description
 This program will take a file, input stream, or list of 'words' and repeat
