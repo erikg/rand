@@ -1,7 +1,7 @@
-# $Id: Makefile.am,v 1.10 2004/04/11 17:22:09 erik Exp $
+# $Id: Makefile.am,v 1.11 2004/04/11 17:30:58 erik Exp $
 #
 
-if HAVE_TEST
+if TEST
 TEST=test
 endif
 
