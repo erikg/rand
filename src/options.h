@@ -26,13 +26,15 @@
 #ifndef __OPTIONS_H_
 #define __OPTIONS_H_
 
+#include <stdio.h>
+
 enum {
     LINE,
     WORD,
     ERR
 };
 
-extern unsigned int io_pipes[2];	/* ick. */
+extern FILE *io_pipes[2];	/* ick. */
 
 unsigned char options (int argc, char **argv);
 

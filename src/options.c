@@ -43,7 +43,7 @@
 #include "seed.h"
 #include "options.h"
 
-unsigned int io_pipes[2];
+FILE *io_pipes[2];
 
 unsigned char
 options (int argc, char **argv)
@@ -55,7 +55,7 @@ options (int argc, char **argv)
 	switch ((char)c)
 	{
 	case 'f':
-	    if ((io_pipes[0] = open (optarg, O_RDONLY)) == NULL)
+	    if ((io_pipes[0] = fopen (optarg, "r")) == NULL)
 	    {
 		fprintf (stderr, _("Cannot open %s for reading\n"), optarg);
 		return EXIT_FAILURE;
@@ -63,11 +63,12 @@ options (int argc, char **argv)
 	    break;
 	case 'o':		/* TODO file mode needs to be fixed */
 	    if ((io_pipes[1] =
-		    open (optarg, O_WRONLY | O_TRUNC | O_CREAT, 0644)) == NULL)
+		    fopen (optarg, "w")) == NULL)
 	    {
 		fprintf (stderr, _("Cannot open %s for writing\n"), optarg);
 		return EXIT_FAILURE;
 	    }
+	    chmod(optarg, 0644);
 	    break;		/*oops, thanks to Tim Clapin for pointing out this ommision */
 	case 'l':
 	    method = LINE;

@@ -8,7 +8,7 @@ localedir    = $(datadir)/locale
 INCLUDES     = -DLOCALEDIR=\"$(localedir)\"
 
 lint:
-	lclint $(CFLAGS) +posixstrictlib rand.c > rand.c.lint
+	for a in ${rand_SOURCES} ${noinst_HEADERS} ; do splint $(CFLAGS) +posixstrictlib $$a > $$a.lint ; done
 indent:
 	indent rand.c
 
