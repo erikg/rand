@@ -44,7 +44,7 @@ void
 show_help ()
 {
     fprintf (stdout, _("\
-%s %s (C) 1998-2001 Erik Greenwald <erik@math.smsu.edu>\n\
+%s %s (C) 1998-2004 Erik Greenwald <erik@math.smsu.edu>\n\
 %s comes with ABSOLUTELY NO WARRANTY. Please read the GPL for details.\n\
 \n\
 Usage:\n\
@@ -62,6 +62,6 @@ show_version ()
 {
     fprintf (stdout,
 	_
-	("%s %s (C) 1998-2001 Erik Greenwald <erik@math.smsu.edu>\n"),
+	("%s %s (C) 1998-2004 Erik Greenwald <erik@math.smsu.edu>\n"),
 	PACKAGE, VERSION);
 }
