@@ -1,0 +1,9 @@
+rand (1.8-1) unstable; urgency=low
+
+  * Initial release.
+
+ --  <erik@fenris>  Wed, 17 May 2000 20:06:11 -0500
+
+Local variables:
+mode: debian-changelog
+End:

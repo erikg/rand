@@ -1,0 +1,15 @@
+Begin3
+Title:          rand
+Version:        1.8
+Entered-date:   Jan 16 1998
+Description:    utility to display files or streams in random order
+Keywords:       random pipe sort shuffle order
+Author:         Erik Greenwald <br0ke@math.smsu.edu> <erik@smluc.org>
+Maintained-by:  Erik Greenwald <br0ke@math.smsu.edu> <erik@smluc.org>
+Primary-site:   http://math.smsu.edu/~br0ke/rand.html
+Alternate-site:
+Original-site:  http://math.smsu.edu/~br0ke/rand.html
+Platforms:      Linux, Unix, Windows?, Mac? (all?)
+Copying-policy: GNU Copyright
+End
+

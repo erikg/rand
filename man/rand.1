@@ -1,0 +1,55 @@
+.TH SORT 1 "Text Utilities" "Br0kE" \" -*- nroff -*-
+.SH NAME
+rand \- randomize the order of a stream
+.SH SYNOPSIS
+<cmd> |
+.B rand
+[-lw] [-o <output file>]
+.br
+.B rand
+[-lwvh] [-f <input file>] [-o <output file>]
+.br
+.B rand
+{\-\-help,\-\-version}
+.SH DESCRIPTION
+.B rand
+has 2 major modes of operation. The first is as a pipe. The second is to act
+on a specified file. There are 2 minor modes of operation, the data can be 
+randomized by line or word.
+.PP
+As a pipe, 
+.B rand
+collects the stream until it terminates, then displays the randomized results
+of this completed stream. If the stream is the result of several operations,
+then the stream as a whole is randomized. 
+.PP
+When operating on a file,
+.B rand
+will read the input from a single given file, and display the results to stdout.
+.PP
+The two command line parameters control if the randomization is per line or word. The default behavior is to randomize by line. 
+.B rand -w
+will randomize by word, and return one word on every line. A word in this sense
+is any string delimited by a whitespace. Tabs, spaces, and newlines are ignored.
+.PP
+.SH EXAMPLES
+play `find -name *.wav | 
+.B rand
+`
+.br
+.B rand
+-w -f COPYING -o whatever
+.br
+.B rand
+-l -f history.test -o test.1
+/bin/ls |
+.B rand
+-w
+.PP
+.SH AUTHOR
+Erik Greenwald <
+.IR br0ke@math.smsu.edu
+> <
+.IR erik@smluc.org
+>
+

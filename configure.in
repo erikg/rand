@@ -1,0 +1,18 @@
+AC_INIT(src/rand.c)
+AM_INIT_AUTOMAKE(rand, 1.8)
+
+ALL_LINGUAS="en en_AU en_CA en_GB en_IE en_US pt pt_BR"
+
+AC_PROG_CC
+AC_PROG_INSTALL
+AC_ISC_POSIX
+
+AC_C_CONST
+AC_STDC_HEADERS
+
+AC_HEADER_STDC
+AC_CHECK_HEADERS(unistd.h stdio.h stdlib.h string.h time.h)
+
+AM_GNU_GETTEXT
+
+AC_OUTPUT(Makefile po/Makefile.in intl/Makefile man/Makefile src/Makefile)

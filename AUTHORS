@@ -1,0 +1,9 @@
+Erik Greenwald <br0ke@math.smsu.edu> <erik@smluc.org>
+	* Project Maintainer
+
+Dr Eric Shade <shade@csc.smsu.edu>
+	* Faster algorithm for randomizing the table
+
+Martin Hinsch <mhinsch@informatik.uni-osnabrueck.de>
+	* improved seeding the random number generator
+

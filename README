@@ -1,0 +1,31 @@
+rand.c by Erik Greenwald (C) 1998-2000  this software is released under the GPL
+!!WARNING!! this software is NOT PROTECTED BY WARRANTY.
+
+This program will take a file, input stream, or list of 'words' and repeat
+them in a random order to the given output file or stdout. Kinda the opposite 
+of sort...
+
+rand [-lwvh] [-f <input file>] [-o <output file>]
+
+Pipe usage:
+	/bin/ls | rand [-lw] [-o <output file>]
+file usage:
+	rand [-lw] -f COPYING [-o <output file>] 
+other:
+	rand [-vh]
+
+
+Installation: read INSTALL.
+
+Bug reports:
+	email br0ke@math.smsu.edu, provide as much useful info as possible.
+
+What to do with this? well, you can queue up programs in a random order... someone was complaining about mpg123 not having a 'shuffle' command (which it does), this could provide that. A teacher writing a test could use this to generate tests that have the same questions but in different order... etc etc etc. One interesting use was a sysadmin using this to scramble 'script kiddies' exploit sources. While not completely ethical, it's terribly amusing :)
+
+
+Thanks to Dr Shade <shade@csc.smsu.edu> (Southwest Missouri State University) 
+for redoing the randomizing algorithm to be lightening fast. O(n^2) to O(n).
+
+Thanks to Martin Hinsch for proposing the time() seed
+
+Thanks to Kev and MLH for helping me get it working on fbsd/sunos/solaris/aix
