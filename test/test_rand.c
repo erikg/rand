@@ -1,5 +1,5 @@
 /*
- * $Id: test_rand.c,v 1.2 2004/02/18 01:32:59 erik Exp $
+ * $Id: test_rand.c,v 1.3 2004/02/18 03:29:35 erik Exp $
  */
 
 #include <stdio.h>
@@ -7,6 +7,8 @@
 #include <check.h>
 
 #include "test_src_options.h"
+#include "test_src_rand.h"
+#include "test_src_seed.h"
 
 Suite *
 rand_suite (void)
@@ -14,6 +16,8 @@ rand_suite (void)
     Suite *s = suite_create ("rand");
 
     suite_add_tcase (s, src_options_test(s));
+    suite_add_tcase (s, src_seed_test(s));
+    suite_add_tcase (s, src_rand_test(s));
 
     return s;
 }
