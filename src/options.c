@@ -52,7 +52,7 @@ options (int argc, char **argv)
 	if ((io_pipes[0] = open (optarg, O_RDONLY)) == NULL)
 	  {
 	    fprintf (stderr, _("Cannot open %s for reading\n"), optarg);
-	    return -1;
+	    return EXIT_FAILURE;
 	  }
 	break;
       case 'o':	/* TODO file mode needs to be fixed */
