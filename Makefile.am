@@ -1,7 +1,7 @@
-# $Id: Makefile.am,v 1.6 2004/02/16 14:31:07 erik Exp $
+# $Id: Makefile.am,v 1.7 2004/02/16 16:09:49 erik Exp $
 #
 
-SUBDIRS = po man src @TEST@
+SUBDIRS = po src docs @TEST@
 
 EXTRA_DIST=ChangeLog $(PACKAGE).spec.in rand.lsm.in
 
@@ -29,3 +29,6 @@ indent:
 
 test:
 	make -C test test
+
+docs:
+	make -C docs/doxygen/latex 
