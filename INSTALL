@@ -1,9 +1,0 @@
-INSTALLATION is done the normal autoconf way.
-
-	./configure [options]
-	make all install
-
-The following files will be installed:
-
-	$(PREFIX)/bin/rand
-	$(PREFIX)/man/man1/rand.1.gz
