@@ -5,7 +5,7 @@
  *        rand [-lw] -f <file> [-o output file]
  *        rand <parms to be randomized>      <-- not anymore.
  * 	
- *     Copyright (C) 1998,1999,2000 Erik Greenwald <br0ke@math.smsu.edu>
+ *     Copyright (C) 1998-2001 Erik Greenwald <erik@smluc.org>
  * 
  *     This program is free software; you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
@@ -20,6 +20,7 @@
  *     You should have received a copy of the GNU General Public License
  *     along with this program; if not, write to the Free Software
  *     Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+ *
  ******************************************************************************/
 
 /* NOTE: the method I'm using to get a random number LOOKS ineffecient. But
@@ -205,11 +206,13 @@ static void
 show_help ()
 {
   fprintf (stdout, _("\
-%s %s (C) 1998, 1999, 2000 Erik Greenwald <br0ke@math.smsu.edu>\n\
-%s comes with ABSOLUTELY NO WARRANTY. Please read the GPL for details.\n\n\
+%s %s (C) 1998-2001 Erik Greenwald <erik@math.smsu.edu>\n\
+%s comes with ABSOLUTELY NO WARRANTY. Please read the GPL for details.\n\
+\n\
 Usage:\n\
 \t<command> | %s [-lw] [-o <output file>]\n\
-\t%s [-lwvh] [-f <input file>] [-o <output file>] [-s <seed>]\n\n\
+\t%s [-lwvh] [-f <input file>] [-o <output file>] [-s <seed>]\n\
+\n\
 "), PACKAGE, VERSION, PACKAGE, PACKAGE, PACKAGE);
   fprintf (stdout,
 	   _
@@ -221,7 +224,7 @@ show_version ()
 {
   fprintf (stdout,
 	   _
-	   ("%s %s (C) 1998, 1999, 2000 Erik Greenwald <br0ke@math.smsu.edu>\n"),
+	   ("%s %s (C) 1998-2001 Erik Greenwald <erik@math.smsu.edu>\n"),
 	   PACKAGE, VERSION);
 }
 
