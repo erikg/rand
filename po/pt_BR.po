@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: rand 1.7\n"
-"POT-Creation-Date: 2000-09-03 11:52-0500\n"
+"POT-Creation-Date: 2000-09-03 12:03-0500\n"
 "PO-Revision-Date: 2000-03-14 15:00-0300\n"
 "Last-Translator: Rodrigo Parra Novo <rodarvus@conectiva.com.br>\n"
 "Language-Team: Brazilian Portuguese <ldp-br@bazar.conectiva.com.br>\n"
@@ -50,12 +50,12 @@ msgstr ""
 "%s %s (C) 1998, 1999, 2000 Erik Greenwald <br0ke@math.smsu.edu>\n"
 "\n"
 
-#: src/rand.c:266
+#: src/rand.c:259
 #, c-format
 msgid "Cannot open %s for reading\n"
 msgstr "Não foi possível abrir %s para leitura\n"
 
-#: src/rand.c:273
+#: src/rand.c:272
 #, c-format
 msgid "Cannot open %s for writing\n"
 msgstr "Não foi possível abrir %s para escrita\n"

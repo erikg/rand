@@ -1,11 +1,10 @@
 /*****************************************************************************
- *    rand.c : write a randomization of files or stdin or parms to stdout
+ *    rand : write a randomization of files or stdin or parms to stdout
  *    Usage:
  *        blah | rand [-lw] [-o output file]
  *        rand [-lw] -f <file> [-o output file]
- *        rand <parms to be randomized>      <-- not anymore.
  * 	
- *     Copyright (C) 1998-2001 Erik Greenwald <erik@smluc.org>
+ *     Copyright (C) 1998-2002 Erik Greenwald <erik@smluc.org>
  * 
  *     This program is free software; you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
@@ -46,6 +45,8 @@
 #include <time.h>
 #include <locale.h>
 #include <libintl.h>
+#include "help.h"
+#include "seed.h"
 
 #ifndef _
 #define _(String) gettext(String)
@@ -202,34 +203,6 @@ scramble (FILE * fp, FILE * fo, char method)
 
 /***********************************************************************/
 
-static void
-show_help ()
-{
-  fprintf (stdout, _("\
-%s %s (C) 1998-2001 Erik Greenwald <erik@math.smsu.edu>\n\
-%s comes with ABSOLUTELY NO WARRANTY. Please read the GPL for details.\n\
-\n\
-Usage:\n\
-\t<command> | %s [-lw] [-o <output file>]\n\
-\t%s [-lwvh] [-f <input file>] [-o <output file>] [-s <seed>]\n\
-\n\
-"), PACKAGE, VERSION, PACKAGE, PACKAGE, PACKAGE);
-  fprintf (stdout,
-	   _
-	   (" -l\t\tDisplay lines in random order\n -w\t\tDisplay words in random order\n\n"));
-}
-
-static void
-show_version ()
-{
-  fprintf (stdout,
-	   _
-	   ("%s %s (C) 1998-2001 Erik Greenwald <erik@math.smsu.edu>\n"),
-	   PACKAGE, VERSION);
-}
-
-/***********************************************************************/
-
 int
 main (int argc, char **argv)
 {
@@ -240,20 +213,14 @@ main (int argc, char **argv)
   char method;
 
   /* do the gettext shtuff */
-
   setlocale (LC_ALL, "");
   bindtextdomain (PACKAGE, LOCALEDIR);
   textdomain (PACKAGE);
 
-  /* gettext is ready to roll */
-
   method = LINE;		/* default to LINE method */
+  seed(NULL);
 
-  /* seed the entropy pool from here, so we can override it */
-  /* thanks to Martin Hinsch for the +time(0) */
-  srand ((unsigned int) (getpid () + time (NULL)));
-
-  while ((c = getopt (argc, argv, "f:hlo:s:vw")) != EOF)
+  while ((c = getopt (argc, argv, "f:o:lws:hv")) != EOF)
     switch ((char) c)
       {
       case 'f':
@@ -263,12 +230,6 @@ main (int argc, char **argv)
 	    return -1;
 	  }
 	break;
-      case 'h':
-	show_help ();
-	return EXIT_SUCCESS;
-      case 'l':
-	method = LINE;
-	break;
       case 'o':
 	if ((fo = fopen (optarg, "w")) == NULL)
 	  {
@@ -276,15 +237,21 @@ main (int argc, char **argv)
 	    return EXIT_FAILURE;
 	  }
 	break;			/*oops, thanks to Tim Clapin for pointing out this ommision */
+      case 'l':
+	method = LINE;
+	break;
+      case 'w':
+	method = WORD;
+	break;
       case 's':
-	srand (atoi (optarg));	/* we're not worried about over/under flow */
+        seed(optarg);
 	break;
       case 'v':
 	show_version ();
 	return EXIT_SUCCESS;
-      case 'w':
-	method = WORD;
-	break;
+      case 'h':
+	show_help ();
+	return EXIT_SUCCESS;
       default:
 	show_help ();
 	return EXIT_FAILURE;
@@ -292,5 +259,5 @@ main (int argc, char **argv)
 
   scramble (fp, fo, method);
 
-  return 0;
+  return EXIT_SUCCESS;
 }

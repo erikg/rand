@@ -1,5 +1,5 @@
 bin_PROGRAMS = rand
-rand_SOURCES = rand.c
+rand_SOURCES = rand.c seed.c help.c
 rand_LDADD   = @INTLLIBS@ 
 localedir    = $(datadir)/locale
 INCLUDES     = -I../intl -I$(toplevel_dir)/intl -DLOCALEDIR=\"$(localedir)\"
