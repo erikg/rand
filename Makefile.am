@@ -1,11 +1,11 @@
-# $Id: Makefile.am,v 1.7 2004/02/16 16:09:49 erik Exp $
+# $Id: Makefile.am,v 1.8 2004/02/16 16:23:32 erik Exp $
 #
 
 SUBDIRS = po src docs @TEST@
 
 EXTRA_DIST=ChangeLog $(PACKAGE).spec.in rand.lsm.in
 
-.PHONY : rpm
+.PHONY : rpm docs
 rpm: dist
 	cp $(PACKAGE)-$(VERSION).tar.gz ${HOME}/rpm/SOURCES/
 	rpmbuild -ba $(PACKAGE).spec
@@ -31,4 +31,7 @@ test:
 	make -C test test
 
 docs:
+	doxygen docs/doxygen.conf
 	make -C docs/doxygen/latex 
+	dvips -f docs/doxygen/latex/refman.dvi > refman.ps
+	ps2pdf refman.ps
