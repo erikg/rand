@@ -16,7 +16,7 @@ msgstr ""
 #: src/rand.c:207
 #, fuzzy, c-format
 msgid ""
-"%s %s (C) 1998, 1999, 2000 Erik Greenwald <br0ke@math.smsu.edu>\n"
+"%s %s (C) 1998-2004 Erik Greenwald <erik@math.smsu.edu>\n"
 "%s comes with ABSOLUTELY NO WARRANTY. Please read the GPL for details.\n"
 "\n"
 "Usage:\n"
@@ -24,7 +24,7 @@ msgid ""
 "\t%s [-lwvh] [-f <input file>] [-o <output file>] [-s <seed>]\n"
 "\n"
 msgstr ""
-"%s %s (C) 1998, 1999, 2000 Erik Greenwald <br0ke@math.smsu.edu>\n"
+"%s %s (C) 1998-2004 Erik Greenwald <erik@math.smsu.edu>\n"
 "%s vem é distribuido sem NENHUMA GARANTIA. Por favor leia a GPL para obter "
 "maiores detalhes.\n"
 "\n"
@@ -45,9 +45,9 @@ msgstr ""
 
 #: src/rand.c:224
 #, fuzzy, c-format
-msgid "%s %s (C) 1998, 1999, 2000 Erik Greenwald <br0ke@math.smsu.edu>\n"
+msgid "%s %s (C) 1998-2004 Erik Greenwald <erik@math.smsu.edu>\n"
 msgstr ""
-"%s %s (C) 1998, 1999, 2000 Erik Greenwald <br0ke@math.smsu.edu>\n"
+"%s %s (C) 1998-2004 Erik Greenwald <erik@math.smsu.edu>\n"
 "\n"
 
 #: src/rand.c:259

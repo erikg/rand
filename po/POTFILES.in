@@ -1,1 +1,3 @@
+src/help.c
+src/options.c
 src/rand.c

@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: RAND 1.7\n"
+"Project-Id-Version: RAND 1.8\n"
 "POT-Creation-Date: 2000-09-03 12:03-0500\n"
 "PO-Revision-Date: 2000-02-15 19:14-0600\n"
 "Last-Translator: Erik Greenwald <erik@smluc.org>\n"
@@ -16,7 +16,7 @@ msgstr ""
 #: src/rand.c:207
 #, c-format
 msgid ""
-"%s %s (C) 1998, 1999, 2000 Erik Greenwald <br0ke@math.smsu.edu>\n"
+"%s %s (C) 1998-2004 Erik Greenwald <erik@math.smsu.edu>\n"
 "%s comes with ABSOLUTELY NO WARRANTY. Please read the GPL for details.\n"
 "\n"
 "Usage:\n"
@@ -34,7 +34,7 @@ msgstr ""
 
 #: src/rand.c:224
 #, c-format
-msgid "%s %s (C) 1998, 1999, 2000 Erik Greenwald <br0ke@math.smsu.edu>\n"
+msgid "%s %s (C) 1998-2004 Erik Greenwald <erik@math.smsu.edu>\n"
 msgstr ""
 
 #: src/rand.c:259
