@@ -24,7 +24,7 @@
  ******************************************************************************/
 
 /*
- * $Id: main.c,v 1.8 2004/02/18 21:26:37 erik Exp $
+ * $Id: main.c,v 1.9 2004/02/18 21:32:03 erik Exp $
  */
 
 #include <stdio.h>
@@ -55,11 +55,10 @@ main (int argc, char **argv)
     FILE *io_pipes[2];
 
 #ifdef ENABLE_NLS
-    bindtextdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR);
-    bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
-    textdomain (GETTEXT_PACKAGE);
+    bindtextdomain (PACKAGE, LOCALEDIR);
+    bind_textdomain_codeset (PACKAGE, "UTF-8");
+    textdomain (PACKAGE);
 #endif
-
 
     seed (NULL);
 
