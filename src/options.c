@@ -24,7 +24,7 @@
  ******************************************************************************/
 
 /*
- * $Id: options.c,v 1.14 2004/02/18 21:26:37 erik Exp $
+ * $Id: options.c,v 1.15 2004/02/18 21:35:11 erik Exp $
  */
 
 #include <stdio.h>
@@ -32,6 +32,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <time.h>
+#include <sys/stat.h>
 
 #ifdef ENABLE_NLS
 # include <libintl.h>
