@@ -24,7 +24,7 @@
  ******************************************************************************/
 
 /*
- * $Id: rand.c,v 1.16 2004/02/18 21:39:03 erik Exp $
+ * $Id: rand.c,v 1.17 2004/04/11 17:21:58 erik Exp $
  */
 
 /* NOTE: the method I'm using to get a random number LOOKS ineffecient. But
@@ -105,7 +105,7 @@ scramble (char method, FILE *io_pipes[2])
 	{
 	    while (fgets (blah, 1024, io_pipes[0]))
 	    {
-		struct ll *m = malloc (sizeof (struct ll));
+		struct ll *m = malloc (sizeof (struct ll)); /* valgrind thinks this is an 8 byte leak? */
 
 		if (m == NULL)
 		{
