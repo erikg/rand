@@ -1,6 +1,6 @@
 .\" rand.1 man page for rand
 .\" http://math.smsu.edu/~erik/software.php?id=7
-.\" $Id: rand.1,v 1.1 2004/02/16 16:09:28 erik Exp $
+.\" $Id: rand.1,v 1.2 2004/06/05 20:01:01 erik Exp $
 .\"===========================================================================
 .Dd December 11, 1998
 .Dt RAND 1
@@ -46,13 +46,15 @@ is any string delimited by a whitespace. Tabs, spaces, and newlines are ignored.
 Line shuffle
 .It Op Fl w
 Word shuffle
+.It Op Fl w
+Character shuffle
 .It Op Fl v, -version
 Show version and exit.
 .It Op Fl h, -help
 Show help and exit.
 .It Op Fl f Cm <file>
 Read from <file> instead of stdin.
-.It Op Fl o
+.It Op Fl Cm <file>
 Write to <file> instead of stdout.
 .El
 .\"===========================================================================

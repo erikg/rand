@@ -24,7 +24,7 @@
  ******************************************************************************/
 
 /*
- * $Id: options.c,v 1.16 2004/02/18 21:39:03 erik Exp $
+ * $Id: options.c,v 1.17 2004/06/05 20:01:01 erik Exp $
  */
 
 #ifdef HAVE_CONFIG_H
@@ -63,7 +63,7 @@ options (int argc, char **argv, FILE *io_pipes[2])
     io_pipes[0] = stdin;
     io_pipes[1] = stdout;
 
-    while ((c = getopt (argc, argv, "f:o:lws:hv")) != EOF)
+    while ((c = getopt (argc, argv, "c:f:hlo:s:vw")) != EOF)
 	switch ((char)c)
 	{
 	case 'f':
@@ -87,6 +87,9 @@ options (int argc, char **argv, FILE *io_pipes[2])
 	    break;
 	case 'w':
 	    method = WORD;
+	    break;
+	case 'c':
+	    method = CHAR;
 	    break;
 	case 's':
 	    seed (optarg);
