@@ -24,17 +24,17 @@
  ******************************************************************************/
 
 /*
- * $Id: help.c,v 1.12 2004/02/18 21:26:37 erik Exp $
+ * $Id: help.c,v 1.13 2004/02/18 21:39:03 erik Exp $
  */
+
+#ifdef HAVE_CONFIG_H
+# include "config.h"
+#endif
 
 #include <stdio.h>
 
 #ifdef ENABLE_NLS
 # include <libintl.h>
-#endif
-
-#ifdef HAVE_CONFIG_H
-# include "config.h"
 #endif
 
 #include "help.h"

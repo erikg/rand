@@ -24,8 +24,12 @@
  ******************************************************************************/
 
 /*
- * $Id: options.c,v 1.15 2004/02/18 21:35:11 erik Exp $
+ * $Id: options.c,v 1.16 2004/02/18 21:39:03 erik Exp $
  */
+
+#ifdef HAVE_CONFIG_H
+#include "config.h"
+#endif
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -36,10 +40,6 @@
 
 #ifdef ENABLE_NLS
 # include <libintl.h>
-#endif
-
-#ifdef HAVE_CONFIG_H
-#include "config.h"
 #endif
 
 #include "help.h"
