@@ -24,7 +24,7 @@
  ******************************************************************************/
 
 /*
- * $Id: options.c,v 1.7 2004/02/16 14:31:07 erik Exp $
+ * $Id: options.c,v 1.8 2004/02/16 14:52:04 erik Exp $
  */
 
 #include <stdio.h>
@@ -54,6 +54,9 @@ options (int argc, char **argv)
 {
     int c;
     unsigned char method = LINE;
+
+    io_pipes[0] = stdin;
+    io_pipes[1] = stdout;
 
     while ((c = getopt (argc, argv, "f:o:lws:hv")) != EOF)
 	switch ((char)c)
