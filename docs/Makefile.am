@@ -7,3 +7,6 @@ rand.ps: rand.1
 
 rand.pdf: rand.ps
 	ps2pdf rand.ps rand.pdf
+
+clean:
+	rm -rf doxygen rand.ps rand.pdf
