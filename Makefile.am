@@ -1,11 +1,11 @@
-# $Id: Makefile.am,v 1.8 2004/02/16 16:23:32 erik Exp $
+# $Id: Makefile.am,v 1.9 2004/02/16 17:26:36 erik Exp $
 #
 
 SUBDIRS = po src docs @TEST@
 
 EXTRA_DIST=ChangeLog $(PACKAGE).spec.in rand.lsm.in
 
-.PHONY : rpm docs
+.PHONY : rpm docs test
 rpm: dist
 	cp $(PACKAGE)-$(VERSION).tar.gz ${HOME}/rpm/SOURCES/
 	rpmbuild -ba $(PACKAGE).spec
