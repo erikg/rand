@@ -24,7 +24,7 @@
  ******************************************************************************/
 
 /*
- * $Id: rand.c,v 1.12 2004/02/16 23:45:12 erik Exp $
+ * $Id: rand.c,v 1.13 2004/02/17 00:20:53 erik Exp $
  */
 
 /* NOTE: the method I'm using to get a random number LOOKS ineffecient. But
@@ -80,7 +80,7 @@
     * @remarks Thanks to Dr Eric Shade for helping out.
     */
 void
-scramble (char method)
+scramble (char method, FILE *io_pipes[2])
 {
     char *blah = NULL, **table = NULL;
     struct ll *llist = NULL, *ptr = NULL;

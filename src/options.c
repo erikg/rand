@@ -24,7 +24,7 @@
  ******************************************************************************/
 
 /*
- * $Id: options.c,v 1.10 2004/02/16 23:45:12 erik Exp $
+ * $Id: options.c,v 1.11 2004/02/17 00:20:53 erik Exp $
  */
 
 #include <stdio.h>
@@ -47,17 +47,16 @@
 #include "seed.h"
 #include "options.h"
 
-FILE *io_pipes[2];
-
 /**
  * Parse the command line options
  * @param argc The number of arguments.
  * @param argv The arguments as char**.
+ * @param io_pipes Pipe ends.
  * @return The method type.
  * @author Erik Greenwald <erik@smluc.org>
  */
 unsigned char
-options (int argc, char **argv)
+options (int argc, char **argv, FILE *io_pipes[2])
 {
     int c;
     unsigned char method = LINE;
@@ -83,7 +82,7 @@ options (int argc, char **argv)
 		return EXIT_FAILURE;
 	    }
 	    chmod(optarg, 0600);
-	    break;		/*oops, thanks to Tim Clapin for pointing out this ommision */
+	    break;		/* oops, thanks to Tim Clapin for pointing out this ommision */
 	case 'l':
 	    method = LINE;
 	    break;

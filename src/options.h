@@ -24,11 +24,11 @@
  ******************************************************************************/
 
 /*
- * $Id: options.h,v 1.5 2004/02/16 14:31:07 erik Exp $
+ * $Id: options.h,v 1.6 2004/02/17 00:20:53 erik Exp $
  */
 
-#ifndef __OPTIONS_H_
-#define __OPTIONS_H_
+#ifndef OPTIONS_H
+#define OPTIONS_H
 
 #include <stdio.h>
 
@@ -38,8 +38,6 @@ enum {
     ERR
 };
 
-extern FILE *io_pipes[2];	/* ick. */
-
-unsigned char options (int argc, char **argv);
+unsigned char options (int argc, char **argv, FILE *io_pipes[2]);
 
 #endif

@@ -24,11 +24,11 @@
  ******************************************************************************/
 
 /*
- * $Id: seed.h,v 1.4 2004/02/16 14:31:07 erik Exp $
+ * $Id: seed.h,v 1.5 2004/02/17 00:20:53 erik Exp $
  */
 
-#ifndef __SEED_H_
-#define __SEED_H_
+#ifndef SEED_H
+#define SEED_H
 
 void seed (char *arg);
 

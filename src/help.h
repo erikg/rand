@@ -24,11 +24,11 @@
  ******************************************************************************/
 
 /*
- * $Id: help.h,v 1.4 2004/02/16 14:31:07 erik Exp $
+ * $Id: help.h,v 1.5 2004/02/17 00:20:53 erik Exp $
  */
 
-#ifndef __HELP_H_
-#define __HELP_H_
+#ifndef HELP_H
+#define HELP_H
 
 void show_help ();
 void show_version ();

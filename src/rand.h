@@ -24,8 +24,13 @@
  ******************************************************************************/
 
 /*
- * $Id: rand.h,v 1.4 2004/02/16 14:31:07 erik Exp $
+ * $Id: rand.h,v 1.5 2004/02/17 00:20:53 erik Exp $
  */
+
+#ifndef RAND_H
+#define RAND_H
+
+#include <stdio.h>
 
 /*** struct for the linked lists ***/
 struct ll {
@@ -33,4 +38,6 @@ struct ll {
     struct ll *next;
 };
 
-void scramble (char method);
+void scramble (char method, FILE *io_pipes[2]);
+
+#endif

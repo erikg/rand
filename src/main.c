@@ -24,7 +24,7 @@
  ******************************************************************************/
 
 /*
- * $Id: main.c,v 1.6 2004/02/16 23:45:12 erik Exp $
+ * $Id: main.c,v 1.7 2004/02/17 00:20:53 erik Exp $
  */
 
 #include <stdio.h>
@@ -53,6 +53,7 @@
 int
 main (int argc, char **argv)
 {
+    FILE *io_pipes[2];
 #ifdef HAVE_GETTEXT
     setlocale (LC_ALL, "");
     bindtextdomain (PACKAGE, LOCALEDIR);
@@ -61,7 +62,7 @@ main (int argc, char **argv)
 
     seed (NULL);
 
-    scramble (options (argc, argv));
+    scramble (options (argc, argv, io_pipes), io_pipes);
 
     return EXIT_SUCCESS;
 }
