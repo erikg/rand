@@ -1,4 +1,22 @@
-Fenuary 15, 2000:
+August 23, 2004:
+	fixed an option in the man file, thanks to Mai <bio2x2f02@sneakemail.com>
+August 14, 2004:
+	version 1.8 released.
+	here is the release thing...
+		Hrm, 4.5 years of various things... I dont remember it all and the cvs
+			repo lost a chunk...
+			gettext cleanup
+			lsm file
+			rcs tags
+			rpm4 fixes
+			config headers
+			some doxygen
+			brlcad path foo
+			char rand type
+			removal of globals
+			change from unix fd's to C FILE*'s
+			pass pipes instead of using a global
+February 15, 2000:
 	version 1.7 released.
 	improved random seeding
 	improved the autoconf/automake stuff
