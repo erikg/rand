@@ -1,4 +1,4 @@
-SUBDIRS = po intl man src
+SUBDIRS = po man src
 
 EXTRA_DIST=ChangeLog $(PACKAGE).spec
 

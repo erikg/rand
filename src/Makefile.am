@@ -5,7 +5,7 @@ rand_LDADD   = @INTLLIBS@
 noinst_HEADERS = seed.h help.h options.h
 
 localedir    = $(datadir)/locale
-INCLUDES     = -I../intl -I$(toplevel_dir)/intl -DLOCALEDIR=\"$(localedir)\"
+INCLUDES     = -DLOCALEDIR=\"$(localedir)\"
 
 lint:
 	lclint $(CFLAGS) +posixstrictlib rand.c > rand.c.lint

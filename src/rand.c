@@ -43,8 +43,16 @@
 #include <unistd.h>
 #include <string.h>
 #include <time.h>
-#include <locale.h>
-#include <libintl.h>
+
+#ifdef HAVE_GETTEXT
+# include <locale.h>
+# include <libintl.h>
+# ifndef _
+#  define _(String) gettext(String)
+# endif
+#else
+# define _(String) String
+#endif
 
 #ifdef HAVE_CONFIG_H
 # include "config.h"
@@ -54,9 +62,6 @@
 #include "seed.h"
 #include "options.h"
 
-#ifndef _
-#define _(String) gettext(String)
-#endif
 
 #define NOMEM _("Abort: could not allocate memory\n")
 
@@ -208,9 +213,11 @@ scramble (char method)
 int
 main (int argc, char **argv)
 {
+#ifdef HAVE_GETTEXT
     setlocale (LC_ALL, "");
     bindtextdomain (PACKAGE, LOCALEDIR);
     textdomain (PACKAGE);
+#endif
 
     seed (NULL);
 

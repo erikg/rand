@@ -27,15 +27,20 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <time.h>
-#include <locale.h>
-#include <libintl.h>
+
+#ifdef HAVE_GETTEXT
+# include <locale.h>
+# include <libintl.h>
+# ifndef _
+#  define _(String) gettext(String)
+# endif
+#else
+# define _(String) String
+#endif
+
 #include "help.h"
 #include "seed.h"
 #include "options.h"
-
-#ifndef _
-#define _(String) gettext(String)
-#endif
 
 unsigned int io_pipes[2];
 
