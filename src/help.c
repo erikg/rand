@@ -24,7 +24,7 @@
  ******************************************************************************/
 
 /*
- * $Id: help.c,v 1.10 2004/02/18 00:01:46 erik Exp $
+ * $Id: help.c,v 1.11 2004/02/18 20:51:46 erik Exp $
  */
 
 #include <stdio.h>
@@ -47,7 +47,7 @@
 void
 show_help ()
 {
-    fprintf (stdout, _("\
+    fprintf (stdout, gettext ("\
 %s %s (C) 1998-2004 Erik Greenwald <erik@math.smsu.edu>\n\
 %s comes with ABSOLUTELY NO WARRANTY. Please read the GPL for details.\n\
 \n\
@@ -56,9 +56,7 @@ Usage:\n\
 \t%s [-lwvh] [-f <input file>] [-o <output file>] [-s <seed>]\n\
 \n\
 "), PACKAGE, VERSION, PACKAGE, PACKAGE, PACKAGE);
-    fprintf (stdout,
-	_
-	(" -l\t\tDisplay lines in random order\n -w\t\tDisplay words in random order\n\n"));
+    fprintf (stdout, gettext (" -l\t\tDisplay lines in random order\n -w\t\tDisplay words in random order\n\n"));
 }
 
 
@@ -70,8 +68,5 @@ Usage:\n\
 void
 show_version ()
 {
-    fprintf (stdout,
-	_
-	("%s %s (C) 1998-2004 Erik Greenwald <erik@math.smsu.edu>\n"),
-	PACKAGE, VERSION);
+    fprintf (stdout, gettext ("%s %s (C) 1998-2004 Erik Greenwald <erik@math.smsu.edu>\n"), PACKAGE, VERSION);
 }

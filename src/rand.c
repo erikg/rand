@@ -24,7 +24,7 @@
  ******************************************************************************/
 
 /*
- * $Id: rand.c,v 1.14 2004/02/18 00:01:46 erik Exp $
+ * $Id: rand.c,v 1.15 2004/02/18 20:51:46 erik Exp $
  */
 
 /* NOTE: the method I'm using to get a random number LOOKS ineffecient. But
@@ -64,7 +64,7 @@
 #include "seed.h"
 
 
-#define NOMEM _("Abort: could not allocate memory\n")
+#define NOMEM gettext("Abort: could not allocate memory\n")
 
 
    /**

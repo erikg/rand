@@ -24,7 +24,7 @@
  ******************************************************************************/
 
 /*
- * $Id: options.c,v 1.12 2004/02/18 00:01:46 erik Exp $
+ * $Id: options.c,v 1.13 2004/02/18 20:51:46 erik Exp $
  */
 
 #include <stdio.h>
@@ -69,7 +69,7 @@ options (int argc, char **argv, FILE *io_pipes[2])
 	case 'f':
 	    if ((io_pipes[0] = fopen (optarg, "r")) == NULL)
 	    {
-		fprintf (stderr, _("Cannot open %s for reading\n"), optarg);
+		fprintf (stderr, gettext("Cannot open %s for reading\n"), optarg);
 		return EXIT_FAILURE;
 	    }
 	    break;
@@ -77,7 +77,7 @@ options (int argc, char **argv, FILE *io_pipes[2])
 	    if ((io_pipes[1] =
 		    fopen (optarg, "w")) == NULL)
 	    {
-		fprintf (stderr, _("Cannot open %s for writing\n"), optarg);
+		fprintf (stderr, gettext("Cannot open %s for writing\n"), optarg);
 		return EXIT_FAILURE;
 	    }
 	    chmod(optarg, 0600);

@@ -1,4 +1,4 @@
-dnl $Id: configure.in,v 1.8 2004/02/18 00:01:46 erik Exp $
+dnl $Id: configure.in,v 1.9 2004/02/18 20:51:46 erik Exp $
 
 AC_INIT(src/rand.c)
 AM_CONFIG_HEADER(config.h)
@@ -6,11 +6,9 @@ AM_INIT_AUTOMAKE(rand, 1.8)
 
 ALL_LINGUAS="en en_AU en_CA en_GB en_IE en_US pt pt_BR"
 AM_GNU_GETTEXT(external, need-ngettext)
-if test ! "$HAVE_GETTEXT" = "" 
+if test "$USE_NLS" = "no" 
 then
-	AC_DEFINE(_,gettext,We have gettext)
-else
-	AC_DEFINE(_,,No gettext)
+	AC_DEFINE(gettext,,No gettext)
 fi
 
 AC_PROG_CC
