@@ -24,7 +24,7 @@
  ******************************************************************************/
 
 /*
- * $Id: seed.c,v 1.5 2004/02/16 17:25:07 erik Exp $
+ * $Id: seed.c,v 1.6 2004/02/16 23:45:12 erik Exp $
  */
 
 #include <stdio.h>
@@ -38,8 +38,8 @@
  * Write out the random seed. This is done on each pass per euid, so if an
  * effective user wants to recover the last random seed, there is a place to
  * extract it from.
- * \param void No parameters accepted.
- * \return Void. Nothing returned.
+ * @param void No parameters accepted.
+ * @return Void. Nothing returned.
  */
 void
 seed_rand ()
@@ -82,8 +82,8 @@ old_seed ()
 
 /**
  * Seed a random number.
- * \param arg eh?
- * \return Void... Nothing returned.
+ * @param arg eh?
+ * @return Void... Nothing returned.
  */
 void
 seed (char *arg)

@@ -24,7 +24,7 @@
  ******************************************************************************/
 
 /*
- * $Id: help.c,v 1.8 2004/02/16 17:25:06 erik Exp $
+ * $Id: help.c,v 1.9 2004/02/16 23:45:12 erik Exp $
  */
 
 #include <stdio.h>
@@ -46,8 +46,8 @@
 #include "help.h"
 
 /** Print version and help info to stdout.
- * \param void This funtion takes no parameters
- * \return This function returns void.
+ * @param void This funtion takes no parameters
+ * @return This function returns void.
  */
 void
 show_help ()
@@ -69,8 +69,8 @@ Usage:\n\
 
 /**
  * Print the version to stdout.
- * \param void This funtion takes no parameters
- * \return This function returns void.
+ * @param void This funtion takes no parameters
+ * @return This function returns void.
  */
 void
 show_version ()

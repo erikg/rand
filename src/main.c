@@ -24,7 +24,7 @@
  ******************************************************************************/
 
 /*
- * $Id: main.c,v 1.5 2004/02/16 17:25:07 erik Exp $
+ * $Id: main.c,v 1.6 2004/02/16 23:45:12 erik Exp $
  */
 
 #include <stdio.h>
@@ -46,9 +46,9 @@
 
 /*
  * The main function.
- * \param argc The number of arguments.
- * \param argv The arguments themselves, in an arrag of strings (char *).
- * \return The exit value (EXIT_SUCCESS or EXIT_FAILURE).
+ * @param argc The number of arguments.
+ * @param argv The arguments themselves, in an arrag of strings (char *).
+ * @return The exit value (EXIT_SUCCESS or EXIT_FAILURE).
  */
 int
 main (int argc, char **argv)

@@ -24,7 +24,7 @@
  ******************************************************************************/
 
 /*
- * $Id: options.c,v 1.9 2004/02/16 17:25:07 erik Exp $
+ * $Id: options.c,v 1.10 2004/02/16 23:45:12 erik Exp $
  */
 
 #include <stdio.h>
@@ -51,10 +51,10 @@ FILE *io_pipes[2];
 
 /**
  * Parse the command line options
- * \param argc The number of arguments.
- * \param argv The arguments as char**.
- * \return The method type.
- * \author Erik Greenwald <erik@smluc.org>
+ * @param argc The number of arguments.
+ * @param argv The arguments as char**.
+ * @return The method type.
+ * @author Erik Greenwald <erik@smluc.org>
  */
 unsigned char
 options (int argc, char **argv)
