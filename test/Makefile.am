@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.5 2004/04/11 16:47:32 erik Exp $
+# $Id: Makefile.am,v 1.6 2004/04/11 17:45:17 erik Exp $
 #
 
 TESTS=test_rand
@@ -8,7 +8,7 @@ test_rand_SOURCES=test_rand.c test_src_options.c test_src_rand.c test_src_seed.c
 noinst_HEADERS=test_src_options.h test_src_rand.h test_src_seed.h
 
 AM_CFLAGS = @CHECK_CFLAGS@ @COVERAGE_CFLAGS@
-LDADD  = @CHECK_LIBS@
+LDADD  = @CHECK_LIBS@ @INTLLIBS@
 
 test: test_rand
 	./test_rand
