@@ -24,18 +24,18 @@
  ******************************************************************************/
 
 /*
- * $Id: main.c,v 1.9 2004/02/18 21:32:03 erik Exp $
+ * $Id: main.c,v 1.10 2004/02/18 21:37:28 erik Exp $
  */
+
+#ifdef HAVE_CONFIG_H
+# include "config.h"
+#endif
 
 #include <stdio.h>
 #include <stdlib.h>
 
 #ifdef ENABLE_NLS
 # include <libintl.h>
-#endif
-
-#ifdef HAVE_CONFIG_H
-# include "config.h"
 #endif
 
 #include "help.h"
