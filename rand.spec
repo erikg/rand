@@ -4,7 +4,7 @@ Version: 1.8
 Release: 1
 Copyright: GPL
 Vendor: Erik Greenwald
-Url: http://math.smsu.edu/~erik/rand.html
+Url: http://math.smsu.edu/~erik/software.php?id=7
 Group: Applications/Text
 Source0: http://math.smsu.edu/~erik/files/rand-1.8.tar.gz
 Buildroot: /var/tmp/rand
