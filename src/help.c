@@ -24,13 +24,12 @@
  ******************************************************************************/
 
 /*
- * $Id: help.c,v 1.11 2004/02/18 20:51:46 erik Exp $
+ * $Id: help.c,v 1.12 2004/02/18 21:26:37 erik Exp $
  */
 
 #include <stdio.h>
 
-#ifdef HAVE_GETTEXT
-# include <locale.h>
+#ifdef ENABLE_NLS
 # include <libintl.h>
 #endif
 

@@ -24,7 +24,7 @@
  ******************************************************************************/
 
 /*
- * $Id: options.c,v 1.13 2004/02/18 20:51:46 erik Exp $
+ * $Id: options.c,v 1.14 2004/02/18 21:26:37 erik Exp $
  */
 
 #include <stdio.h>
@@ -33,8 +33,7 @@
 #include <unistd.h>
 #include <time.h>
 
-#ifdef HAVE_GETTEXT
-# include <locale.h>
+#ifdef ENABLE_NLS
 # include <libintl.h>
 #endif
 

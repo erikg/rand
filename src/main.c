@@ -24,14 +24,13 @@
  ******************************************************************************/
 
 /*
- * $Id: main.c,v 1.7 2004/02/17 00:20:53 erik Exp $
+ * $Id: main.c,v 1.8 2004/02/18 21:26:37 erik Exp $
  */
 
 #include <stdio.h>
 #include <stdlib.h>
 
-#ifdef HAVE_GETTEXT
-# include <locale.h>
+#ifdef ENABLE_NLS
 # include <libintl.h>
 #endif
 
@@ -54,11 +53,13 @@ int
 main (int argc, char **argv)
 {
     FILE *io_pipes[2];
-#ifdef HAVE_GETTEXT
-    setlocale (LC_ALL, "");
-    bindtextdomain (PACKAGE, LOCALEDIR);
-    textdomain (PACKAGE);
+
+#ifdef ENABLE_NLS
+    bindtextdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR);
+    bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
+    textdomain (GETTEXT_PACKAGE);
 #endif
+
 
     seed (NULL);
 
