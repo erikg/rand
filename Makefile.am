@@ -1,9 +1,10 @@
-# $Id: Makefile.am,v 1.11 2004/04/11 17:30:58 erik Exp $
+# $Id: Makefile.am,v 1.12 2004/07/05 14:10:15 erik Exp $
 #
 
-if TEST
-TEST=test
-endif
+#if TEST
+#TEST=test
+#endif
+TEST=
 
 SUBDIRS = po src docs $(TEST)
 
@@ -39,3 +40,6 @@ docs:
 	make -C docs/doxygen/latex 
 	dvips -f docs/doxygen/latex/refman.dvi > refman.ps
 	ps2pdf refman.ps
+
+grind:
+	/bin/ls | valgrind --leak-check=yes -v --show-reachable=yes --track-fds=yes --gdb-attach=yes src/rand 2> dump
