@@ -59,22 +59,16 @@
 #endif
 
 #include "help.h"
-#include "seed.h"
 #include "options.h"
+#include "rand.h"
+#include "seed.h"
 
 
 #define NOMEM _("Abort: could not allocate memory\n")
 
-   /*** struct for the linked lists ***/
-struct ll
-{
-  char *data;
-  struct ll *next;
-};
 
    /*** scramble function, for io_pipes and files (not parm) ***/
-
-static void
+void
 scramble (char method)
 {
   char *blah = NULL, **table = NULL;
@@ -208,20 +202,3 @@ scramble (char method)
   return;
 }
 
-/***********************************************************************/
-
-int
-main (int argc, char **argv)
-{
-#ifdef HAVE_GETTEXT
-    setlocale (LC_ALL, "");
-    bindtextdomain (PACKAGE, LOCALEDIR);
-    textdomain (PACKAGE);
-#endif
-
-    seed (NULL);
-
-    scramble (options (argc, argv));
-
-    return EXIT_SUCCESS;
-}

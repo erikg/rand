@@ -1,8 +1,8 @@
 bin_PROGRAMS = rand
-rand_SOURCES = rand.c seed.c help.c options.c
+rand_SOURCES = main.c rand.c seed.c help.c options.c
 rand_LDADD   = @INTLLIBS@ 
 
-noinst_HEADERS = seed.h help.h options.h
+noinst_HEADERS = rand.h seed.h help.h options.h
 
 localedir    = $(datadir)/locale
 INCLUDES     = -DLOCALEDIR=\"$(localedir)\"
