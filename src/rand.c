@@ -47,14 +47,11 @@
 #include <libintl.h>
 #include "help.h"
 #include "seed.h"
+#include "options.h"
 
 #ifndef _
 #define _(String) gettext(String)
 #endif
-
-#define LINE 'l'
-#define WORD 'w'
-#define ERR 255
 
 #define NOMEM _("Abort: could not allocate memory\n")
 
@@ -65,10 +62,10 @@ struct ll
   struct ll *next;
 };
 
-   /*** scramble function, for pipe and files (not parm) ***/
+   /*** scramble function, for io_pipes and files (not parm) ***/
 
 static void
-scramble (FILE * fp, FILE * fo, char method)
+scramble (char method)
 {
   char *blah = NULL, **table = NULL;
   struct ll *llist = NULL, *ptr = NULL;
@@ -96,7 +93,7 @@ scramble (FILE * fp, FILE * fo, char method)
 			   /*** make linked list     ***/
       if (method == LINE)
 	{
-	  while (fgets (blah, 1024, fp))
+	  while (fgets (blah, 1024, io_pipes[0]))
 	    {
 	      struct ll *m = malloc (sizeof (struct ll));
 	      if (m == NULL)
@@ -120,7 +117,7 @@ scramble (FILE * fp, FILE * fo, char method)
 	}
       if (method == WORD)
 	{
-	  while (fscanf (fp, "%s", blah) != EOF)
+	  while (fscanf (io_pipes[0], "%s", blah) != EOF)
 	    {
 	      struct ll *m = malloc (sizeof (struct ll));
 	      if (m == NULL)
@@ -181,10 +178,10 @@ scramble (FILE * fp, FILE * fo, char method)
 
    /*** print it   ***/
 
-  while (size)
+  while (size--)
     {
-      fprintf (fo, "%s\n", table[size - 1]);
-      size--;
+      fprintf (io_pipes[1], "%s\n", table[size]);
+      free(table[size]);
     }
 
    /*** delete the linked list and clean up ***/
@@ -206,58 +203,13 @@ scramble (FILE * fp, FILE * fo, char method)
 int
 main (int argc, char **argv)
 {
-  int c;
-  FILE *fp = stdin;
-  FILE *fo = stdout;
+    setlocale (LC_ALL, "");
+    bindtextdomain (PACKAGE, LOCALEDIR);
+    textdomain (PACKAGE);
 
-  char method;
+    seed (NULL);
 
-  /* do the gettext shtuff */
-  setlocale (LC_ALL, "");
-  bindtextdomain (PACKAGE, LOCALEDIR);
-  textdomain (PACKAGE);
+    scramble (options (argc, argv));
 
-  method = LINE;		/* default to LINE method */
-  seed(NULL);
-
-  while ((c = getopt (argc, argv, "f:o:lws:hv")) != EOF)
-    switch ((char) c)
-      {
-      case 'f':
-	if ((fp = fopen (optarg, "r")) == NULL)
-	  {
-	    fprintf (stderr, _("Cannot open %s for reading\n"), optarg);
-	    return -1;
-	  }
-	break;
-      case 'o':
-	if ((fo = fopen (optarg, "w")) == NULL)
-	  {
-	    fprintf (stderr, _("Cannot open %s for writing\n"), optarg);
-	    return EXIT_FAILURE;
-	  }
-	break;			/*oops, thanks to Tim Clapin for pointing out this ommision */
-      case 'l':
-	method = LINE;
-	break;
-      case 'w':
-	method = WORD;
-	break;
-      case 's':
-        seed(optarg);
-	break;
-      case 'v':
-	show_version ();
-	return EXIT_SUCCESS;
-      case 'h':
-	show_help ();
-	return EXIT_SUCCESS;
-      default:
-	show_help ();
-	return EXIT_FAILURE;
-      }
-
-  scramble (fp, fo, method);
-
-  return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }
