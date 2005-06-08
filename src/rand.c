@@ -24,7 +24,7 @@
  ******************************************************************************/
 
 /*
- * $Id: rand.c,v 1.18 2005/06/08 18:56:50 erik Exp $
+ * $Id: rand.c,v 1.19 2005/06/08 19:04:34 erik Exp $
  */
 
 /* NOTE: the method I'm using to get a random number LOOKS ineffecient. But
@@ -65,7 +65,7 @@
 
 #define NOMEM gettext("Abort: could not allocate memory\n")
 
-int
+static int
 shuffle(char **table, int size)
 {
     int n = size;
@@ -82,7 +82,7 @@ shuffle(char **table, int size)
     return 0;
 }
 
-struct ll *readlines(FILE *io_pipes[2], struct ll *ptr, int *size)
+static struct ll *readlines(FILE *io_pipes[2], struct ll *ptr, int *size)
 {
     char blah[BUFSIZ];
 
@@ -111,7 +111,7 @@ struct ll *readlines(FILE *io_pipes[2], struct ll *ptr, int *size)
     return ptr;
 }
 
-struct ll *readwords(FILE *io_pipes[2], struct ll *ptr, int *size)
+static struct ll *readwords(FILE *io_pipes[2], struct ll *ptr, int *size)
 {
     char blah[BUFSIZ];
 
@@ -142,7 +142,19 @@ struct ll *readwords(FILE *io_pipes[2], struct ll *ptr, int *size)
 	    return ptr;
 }
 
-int
+static int
+freelist(struct ll *llist, struct ll *ptr)
+{
+    ptr = llist->next;
+    while (ptr)
+    {
+	free (llist);
+	llist = ptr;
+	ptr = ptr->next;
+    }
+}
+
+static int
 list_to_table(struct ll *ptr, char **table, int size)
 {
     int x;
@@ -152,6 +164,22 @@ list_to_table(struct ll *ptr, char **table, int size)
 	    ptr = ptr->next;
 	}
 }
+
+static int
+printtable(char **table, int size, FILE **io_pipes){
+    while (size--)
+	fprintf (io_pipes[1], "%s\n", table[size]);
+    return;
+}
+
+static int
+freetable(char **table, int size)
+{
+    while (size--)
+	free (table[size]);
+    return;
+}
+
 
    /**
     * scramble function, for io_pipes and files (not parm).
@@ -189,12 +217,14 @@ scramble (char method, FILE *io_pipes[2])
 
 	if (size == 0)
 	    return;
+
 	table = malloc (size * sizeof (void *));
 	if (table == NULL)
 	{
 	    printf ("%s", NOMEM);
 	    return;
 	}
+
 	ptr = llist->next;
 	list_to_table(ptr, table, size);
     }
@@ -209,24 +239,10 @@ scramble (char method, FILE *io_pipes[2])
 
    /*** print it   ***/
 
-    while (size--)
-    {
-	fprintf (io_pipes[1], "%s\n", table[size]);
-	free (table[size]);
-    }
+    printtable(table, size, io_pipes);
+    freetable(table, size);
 
     free (table);
     return;
 }
 
-int
-freelist(struct ll *llist, struct ll *ptr)
-{
-    ptr = llist->next;
-    while (ptr)
-    {
-	free (llist);
-	llist = ptr;
-	ptr = ptr->next;
-    }
-}
