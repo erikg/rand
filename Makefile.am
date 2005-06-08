@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.13 2004/07/05 14:55:24 erik Exp $
+# $Id: Makefile.am,v 1.14 2005/06/08 14:23:06 erik Exp $
 #
 
 #if TEST
@@ -6,7 +6,7 @@
 #endif
 TEST=
 
-SUBDIRS = m4  po src docs $(TEST)
+SUBDIRS = src docs $(TEST)
 
 EXTRA_DIST= config.rpath ChangeLog $(PACKAGE).spec.in rand.lsm.in
 
