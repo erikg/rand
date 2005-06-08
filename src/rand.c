@@ -24,7 +24,7 @@
  ******************************************************************************/
 
 /*
- * $Id: rand.c,v 1.17 2004/04/11 17:21:58 erik Exp $
+ * $Id: rand.c,v 1.18 2005/06/08 18:56:50 erik Exp $
  */
 
 /* NOTE: the method I'm using to get a random number LOOKS ineffecient. But
@@ -65,69 +65,56 @@
 
 #define NOMEM gettext("Abort: could not allocate memory\n")
 
-
-   /**
-    * scramble function, for io_pipes and files (not parm).
-    * @param method The method type, as defined in the enum.
-    * @return Void Nothing.
-    * @author Erik Greenwald <erik@smluc.org>
-    * @remarks Thanks to Dr Eric Shade for helping out.
-    */
-void
-scramble (char method, FILE *io_pipes[2])
+int
+shuffle(char **table, int size)
 {
-    char *blah = NULL, **table = NULL;
-    struct ll *llist = NULL, *ptr = NULL;
-    int size = 0, n = 0, x = 0;
+    int n = size;
 
-    if (method == LINE || method == WORD)
+    while (n > 1)
     {
-	llist = malloc (sizeof (struct ll));
-	if (llist == NULL)
+	int d = ((double)rand () / RAND_MAX) * n;
+	char *temp = table[d];
+
+	table[d] = table[n - 1];
+	table[n - 1] = temp;
+	--n;
+    }
+    return 0;
+}
+
+struct ll *readlines(FILE *io_pipes[2], struct ll *ptr, int *size)
+{
+    char blah[BUFSIZ];
+
+    while (fgets (blah, BUFSIZ, io_pipes[0]))
+    {
+	struct ll *m = malloc (sizeof (struct ll)); /* valgrind thinks this is an 8 byte leak? */
+
+	if (m == NULL)
 	{
 	    printf ("%s", NOMEM);
 	    return;
 	}
-
-	blah = (char *)malloc (sizeof (char) * 1024);
-	if (blah == NULL)
+	m->data = malloc (strlen (blah) * sizeof (char) + 2);
+	if (m->data == NULL)
 	{
 	    printf ("%s", NOMEM);
-	    free (llist);
 	    return;
 	}
+	memcpy (m->data, blah, strlen (blah) * sizeof (char) + 1);
+	m->data[strlen (m->data) - 1] = (char)0;
+	m->next = NULL;
+	ptr->next = m;
+	ptr = m;
+	size[0]++;
+    }
+    return ptr;
+}
 
-	llist->data = NULL;
-	ptr = llist;
+struct ll *readwords(FILE *io_pipes[2], struct ll *ptr, int *size)
+{
+    char blah[BUFSIZ];
 
-			   /*** make linked list     ***/
-	if (method == LINE)
-	{
-	    while (fgets (blah, 1024, io_pipes[0]))
-	    {
-		struct ll *m = malloc (sizeof (struct ll)); /* valgrind thinks this is an 8 byte leak? */
-
-		if (m == NULL)
-		{
-		    printf ("%s", NOMEM);
-		    return;
-		}
-		m->data = malloc (strlen (blah) * sizeof (char) + 2);
-		if (m->data == NULL)
-		{
-		    printf ("%s", NOMEM);
-		    return;
-		}
-		memcpy (m->data, blah, strlen (blah) * sizeof (char) + 1);
-		m->data[strlen (m->data) - 1] = (char)0;
-		m->next = NULL;
-		ptr->next = m;
-		ptr = m;
-		size++;
-	    }
-	}
-	if (method == WORD)
-	{
 	    while (fscanf (io_pipes[0], "%s", blah) != EOF)
 	    {
 		struct ll *m = malloc (sizeof (struct ll));
@@ -150,46 +137,75 @@ scramble (char method, FILE *io_pipes[2])
 		m->next = NULL;
 		ptr->next = m;
 		ptr = m;
-		size++;
+		size[0]++;
 	    }
-	}
+	    return ptr;
+}
 
-	   /*** make table from list ***/
-
-	if (size == 0)
-	{
-	    free (blah);
-	    return;
-	}
-	table = malloc (size * sizeof (void *));
-	if (table == NULL)
-	{
-	    printf ("%s", NOMEM);
-	    free (blah);
-	    return;
-	}
-	ptr = llist->next;
+int
+list_to_table(struct ll *ptr, char **table, int size)
+{
+    int x;
 	for (x = 0; x < size; x++)
 	{
 	    table[x] = ptr->data;
 	    ptr = ptr->next;
 	}
+}
+
+   /**
+    * scramble function, for io_pipes and files (not parm).
+    * @param method The method type, as defined in the enum.
+    * @return Void Nothing.
+    * @author Erik Greenwald <erik@smluc.org>
+    * @remarks Thanks to Dr Eric Shade for helping out.
+    */
+void
+scramble (char method, FILE *io_pipes[2])
+{
+    char **table = NULL;
+    struct ll *llist = NULL, *ptr = NULL;
+    int size = 0;
+
+    if (method == LINE || method == WORD)
+    {
+	llist = malloc (sizeof (struct ll));
+	if (llist == NULL)
+	{
+	    printf ("%s", NOMEM);
+	    return;
+	}
+
+	llist->data = NULL;
+	ptr = llist;
+
+	   /*** make linked list     ***/
+	if (method == LINE)
+	    ptr = readlines(io_pipes, ptr, &size);
+	if (method == WORD)
+	    ptr = readwords(io_pipes, ptr, &size);
+
+	   /*** make table from list ***/
+
+	if (size == 0)
+	    return;
+	table = malloc (size * sizeof (void *));
+	if (table == NULL)
+	{
+	    printf ("%s", NOMEM);
+	    return;
+	}
+	ptr = llist->next;
+	list_to_table(ptr, table, size);
     }
+
+   /*** delete the linked list and clean up ***/
+    freelist(llist, ptr);
 
     /*
      * shuffle it  (thanks to Dr Shade) 
      */
-    n = size;
-
-    while (n > 1)
-    {
-	int d = ((double)rand () / RAND_MAX) * n;
-	char *temp = table[d];
-
-	table[d] = table[n - 1];
-	table[n - 1] = temp;
-	--n;
-    }
+    shuffle(table, size);
 
    /*** print it   ***/
 
@@ -199,8 +215,13 @@ scramble (char method, FILE *io_pipes[2])
 	free (table[size]);
     }
 
-   /*** delete the linked list and clean up ***/
+    free (table);
+    return;
+}
 
+int
+freelist(struct ll *llist, struct ll *ptr)
+{
     ptr = llist->next;
     while (ptr)
     {
@@ -208,7 +229,4 @@ scramble (char method, FILE *io_pipes[2])
 	llist = ptr;
 	ptr = ptr->next;
     }
-    free (blah);
-    free (table);
-    return;
 }
