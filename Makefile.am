@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.14 2005/06/08 14:23:06 erik Exp $
+# $Id: Makefile.am,v 1.15 2005/10/07 15:25:19 erik Exp $
 #
 
 #if TEST
@@ -44,4 +44,4 @@ docs:
 grind:
 	/bin/ls | valgrind --leak-check=yes -v --show-reachable=yes --track-fds=yes --gdb-attach=yes src/rand 2> dump
 
-ACLOCAL_AMFLAGS = -I m4
+#ACLOCAL_AMFLAGS = -I m4
