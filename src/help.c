@@ -5,7 +5,7 @@
  *        blah | rand [-lw] [-o output file]
  *        rand [-lw] -f <file> [-o output file]
  * 	
- *     Copyright (C) 1998-2004 Erik Greenwald <erik@smluc.org>
+ *     Copyright (C) 1998-2007 Erik Greenwald <erik@smluc.org>
  * 
  *     This program is free software; you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
@@ -24,7 +24,7 @@
  ******************************************************************************/
 
 /*
- * $Id: help.c,v 1.13 2004/02/18 21:39:03 erik Exp $
+ * $Id: help.c,v 1.14 2007/10/11 19:24:49 erik Exp $
  */
 
 #ifdef HAVE_CONFIG_H
@@ -47,7 +47,7 @@ void
 show_help ()
 {
     fprintf (stdout, gettext ("\
-%s %s (C) 1998-2004 Erik Greenwald <erik@math.smsu.edu>\n\
+%s %s (C) 1998-2007 Erik Greenwald <erik@math.smsu.edu>\n\
 %s comes with ABSOLUTELY NO WARRANTY. Please read the GPL for details.\n\
 \n\
 Usage:\n\
@@ -67,5 +67,5 @@ Usage:\n\
 void
 show_version ()
 {
-    fprintf (stdout, gettext ("%s %s (C) 1998-2004 Erik Greenwald <erik@math.smsu.edu>\n"), PACKAGE, VERSION);
+    fprintf (stdout, gettext ("%s %s (C) 1998-2007 Erik Greenwald <erik@math.smsu.edu>\n"), PACKAGE, VERSION);
 }

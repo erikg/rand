@@ -5,7 +5,7 @@
  *        blah | rand [-lw] [-o output file]
  *        rand [-lw] -f <file> [-o output file]
  * 	
- *     Copyright (C) 1998-2004 Erik Greenwald <erik@smluc.org>
+ *     Copyright (C) 1998-2007 Erik Greenwald <erik@smluc.org>
  * 
  *     This program is free software; you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
@@ -24,7 +24,7 @@
  ******************************************************************************/
 
 /*
- * $Id: options.h,v 1.7 2004/06/05 20:01:01 erik Exp $
+ * $Id: options.h,v 1.8 2007/10/11 19:24:49 erik Exp $
  */
 
 #ifndef OPTIONS_H
