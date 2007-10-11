@@ -18,12 +18,12 @@ other:
 Installation: read INSTALL.
 
 Bug reports:
-	email erik@math.smsu.edu, provide as much useful info as possible.
+	email erik@math.missouristate.edu, provide as much useful info as possible.
 
 What to do with this? well, you can queue up programs in a random order... someone was complaining about mpg123 not having a 'shuffle' command (which it does), this could provide that. A teacher writing a test could use this to generate tests that have the same questions but in different order... etc etc etc. One interesting use was a sysadmin using this to scramble 'script kiddies' exploit sources. While not completely ethical, it's terribly amusing :)
 
 
-Thanks to Dr Shade <shade@csc.smsu.edu> (Southwest Missouri State University) 
+Thanks to Dr Shade <shade@csc.missouristate.edu> (Southwest Missouri State University) 
 for redoing the randomizing algorithm to be lightening fast. O(n^2) to O(n).
 
 Thanks to Martin Hinsch for proposing the time() seed
