@@ -24,7 +24,7 @@
  ******************************************************************************/
 
 /*
- * $Id: options.c,v 1.19 2007/10/11 19:24:49 erik Exp $
+ * $Id: options.c,v 1.20 2007/11/19 23:44:54 erik Exp $
  */
 
 #ifdef HAVE_CONFIG_H
@@ -80,7 +80,7 @@ options (int argc, char **argv, FILE *io_pipes[2])
 		fprintf (stderr, gettext("Cannot open %s for writing\n"), optarg);
 		return EXIT_FAILURE;
 	    }
-	    fchmod(io_pipes[1], 0600);
+	    fchmod(fileno(io_pipes[1]), 0600);
 	    break;		/* oops, thanks to Tim Clapin for pointing out this ommision */
 	case 'l':
 	    method = LINE;

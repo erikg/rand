@@ -1,3 +1,8 @@
+
+20071119:
+	* fix bug with FILE* being passed to fchmod
+	* re-enabled gettext
+
 20050608:
 	* broke the source up into smaller bites
 
@@ -49,4 +54,4 @@
 19981211:
 	* Initial public release, version 1.0
 
-$Id: ChangeLog,v 1.5 2007/11/19 16:39:12 erik Exp $
+$Id: ChangeLog,v 1.6 2007/11/19 23:44:54 erik Exp $
