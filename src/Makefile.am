@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.13 2005/10/07 15:25:19 erik Exp $
+# $Id: Makefile.am,v 1.14 2007/11/19 22:24:15 erik Exp $
 
 bin_PROGRAMS = rand
 rand_SOURCES = main.c rand.c seed.c help.c options.c
@@ -7,6 +7,7 @@ noinst_HEADERS = rand.h seed.h help.h options.h
 
 localedir    = $(datadir)/locale
 INCLUDES     = -DLOCALEDIR=\"$(localedir)\"
+rand_LDADD=	$(LTLIBINTL)
 
 lint:
 	for a in ${rand_SOURCES} ${noinst_HEADERS} ; do splint $(CFLAGS) +posixstrictlib $$a > $$a.lint ; done
