@@ -24,7 +24,7 @@
  ******************************************************************************/
 
 /*
- * $Id: rand.c,v 1.20 2007/10/11 19:24:49 erik Exp $
+ * $Id: rand.c,v 1.21 2007/11/19 23:49:18 erik Exp $
  */
 
 /* NOTE: the method I'm using to get a random number LOOKS ineffecient. But
@@ -93,13 +93,13 @@ static struct ll *readlines(FILE *io_pipes[2], struct ll *ptr, int *size)
 	if (m == NULL)
 	{
 	    printf ("%s", NOMEM);
-	    return;
+	    return NULL;
 	}
 	m->data = malloc (strlen (blah) * sizeof (char) + 2);
 	if (m->data == NULL)
 	{
 	    printf ("%s", NOMEM);
-	    return;
+	    return NULL;
 	}
 	memcpy (m->data, blah, strlen (blah) * sizeof (char) + 1);
 	m->data[strlen (m->data) - 1] = (char)0;
@@ -123,7 +123,7 @@ static struct ll *readwords(FILE *io_pipes[2], struct ll *ptr, int *size)
 		{
 		    printf ("%s", NOMEM);
 		    free (blah);
-		    return;
+		    return NULL;
 		}
 		m->data = malloc (strlen (blah) * sizeof (char) + 2);
 		if (m->data == NULL)
@@ -131,7 +131,7 @@ static struct ll *readwords(FILE *io_pipes[2], struct ll *ptr, int *size)
 		    printf ("%s", NOMEM);
 		    free (m);
 		    free (blah);
-		    return;
+		    return NULL;
 		}
 		memcpy (m->data, blah, strlen (blah) * sizeof (char) + 1);
 		m->next = NULL;
@@ -152,24 +152,26 @@ freelist(struct ll *llist, struct ll *ptr)
 	llist = ptr;
 	ptr = ptr->next;
     }
+    return 0;
 }
 
 static int
 list_to_table(struct ll *ptr, char **table, int size)
 {
-    int x;
+	int x;
 	for (x = 0; x < size; x++)
 	{
 	    table[x] = ptr->data;
 	    ptr = ptr->next;
 	}
+	return 0;
 }
 
 static int
 printtable(char **table, int size, FILE **io_pipes){
     while (size--)
 	fprintf (io_pipes[1], "%s\n", table[size]);
-    return;
+    return 0;
 }
 
 static int
@@ -177,7 +179,7 @@ freetable(char **table, int size)
 {
     while (size--)
 	free (table[size]);
-    return;
+    return 0;
 }
 
 
