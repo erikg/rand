@@ -24,7 +24,7 @@
  ******************************************************************************/
 
 /*
- * $Id: rand.c,v 1.21 2007/11/19 23:49:18 erik Exp $
+ * $Id: rand.c,v 1.22 2007/11/19 23:53:37 erik Exp $
  */
 
 /* NOTE: the method I'm using to get a random number LOOKS ineffecient. But
@@ -66,7 +66,7 @@
 #define NOMEM gettext("Abort: could not allocate memory\n")
 
 static int
-shuffle(char **table, int size)
+shuffle (char **table, int size)
 {
     int n = size;
 
@@ -82,13 +82,14 @@ shuffle(char **table, int size)
     return 0;
 }
 
-static struct ll *readlines(FILE *io_pipes[2], struct ll *ptr, int *size)
+static struct ll *
+readlines (FILE * io_pipes[2], struct ll *ptr, int *size)
 {
     char blah[BUFSIZ];
 
     while (fgets (blah, BUFSIZ, io_pipes[0]))
     {
-	struct ll *m = malloc (sizeof (struct ll)); /* valgrind thinks this is an 8 byte leak? */
+	struct ll *m = malloc (sizeof (struct ll));	/* valgrind thinks this is an 8 byte leak? */
 
 	if (m == NULL)
 	{
@@ -111,39 +112,40 @@ static struct ll *readlines(FILE *io_pipes[2], struct ll *ptr, int *size)
     return ptr;
 }
 
-static struct ll *readwords(FILE *io_pipes[2], struct ll *ptr, int *size)
+static struct ll *
+readwords (FILE * io_pipes[2], struct ll *ptr, int *size)
 {
     char blah[BUFSIZ];
 
-	    while (fscanf (io_pipes[0], "%s", blah) != EOF)
-	    {
-		struct ll *m = malloc (sizeof (struct ll));
+    while (fscanf (io_pipes[0], "%s", blah) != EOF)
+    {
+	struct ll *m = malloc (sizeof (struct ll));
 
-		if (m == NULL)
-		{
-		    printf ("%s", NOMEM);
-		    free (blah);
-		    return NULL;
-		}
-		m->data = malloc (strlen (blah) * sizeof (char) + 2);
-		if (m->data == NULL)
-		{
-		    printf ("%s", NOMEM);
-		    free (m);
-		    free (blah);
-		    return NULL;
-		}
-		memcpy (m->data, blah, strlen (blah) * sizeof (char) + 1);
-		m->next = NULL;
-		ptr->next = m;
-		ptr = m;
-		size[0]++;
-	    }
-	    return ptr;
+	if (m == NULL)
+	{
+	    printf ("%s", NOMEM);
+	    free (blah);
+	    return NULL;
+	}
+	m->data = malloc (strlen (blah) * sizeof (char) + 2);
+	if (m->data == NULL)
+	{
+	    printf ("%s", NOMEM);
+	    free (m);
+	    free (blah);
+	    return NULL;
+	}
+	memcpy (m->data, blah, strlen (blah) * sizeof (char) + 1);
+	m->next = NULL;
+	ptr->next = m;
+	ptr = m;
+	size[0]++;
+    }
+    return ptr;
 }
 
 static int
-freelist(struct ll *llist, struct ll *ptr)
+freelist (struct ll *llist, struct ll *ptr)
 {
     ptr = llist->next;
     while (ptr)
@@ -156,26 +158,28 @@ freelist(struct ll *llist, struct ll *ptr)
 }
 
 static int
-list_to_table(struct ll *ptr, char **table, int size)
+list_to_table (struct ll *ptr, char **table, int size)
 {
-	int x;
-	for (x = 0; x < size; x++)
-	{
-	    table[x] = ptr->data;
-	    ptr = ptr->next;
-	}
-	return 0;
+    int x;
+
+    for (x = 0; x < size; x++)
+    {
+	table[x] = ptr->data;
+	ptr = ptr->next;
+    }
+    return 0;
 }
 
 static int
-printtable(char **table, int size, FILE **io_pipes){
+printtable (char **table, int size, FILE ** io_pipes)
+{
     while (size--)
 	fprintf (io_pipes[1], "%s\n", table[size]);
     return 0;
 }
 
 static int
-freetable(char **table, int size)
+freetable (char **table, int size)
 {
     while (size--)
 	free (table[size]);
@@ -191,7 +195,7 @@ freetable(char **table, int size)
     * @remarks Thanks to Dr Eric Shade for helping out.
     */
 void
-scramble (char method, FILE *io_pipes[2])
+scramble (char method, FILE * io_pipes[2])
 {
     char **table = NULL;
     struct ll *llist = NULL, *ptr = NULL;
@@ -211,9 +215,9 @@ scramble (char method, FILE *io_pipes[2])
 
 	   /*** make linked list     ***/
 	if (method == LINE)
-	    ptr = readlines(io_pipes, ptr, &size);
+	    ptr = readlines (io_pipes, ptr, &size);
 	if (method == WORD)
-	    ptr = readwords(io_pipes, ptr, &size);
+	    ptr = readwords (io_pipes, ptr, &size);
 
 	   /*** make table from list ***/
 
@@ -228,23 +232,22 @@ scramble (char method, FILE *io_pipes[2])
 	}
 
 	ptr = llist->next;
-	list_to_table(ptr, table, size);
+	list_to_table (ptr, table, size);
     }
 
    /*** delete the linked list and clean up ***/
-    freelist(llist, ptr);
+    freelist (llist, ptr);
 
     /*
      * shuffle it  (thanks to Dr Shade) 
      */
-    shuffle(table, size);
+    shuffle (table, size);
 
    /*** print it   ***/
 
-    printtable(table, size, io_pipes);
-    freetable(table, size);
+    printtable (table, size, io_pipes);
+    freetable (table, size);
 
     free (table);
     return;
 }
-

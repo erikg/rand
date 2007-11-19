@@ -24,7 +24,7 @@
  ******************************************************************************/
 
 /*
- * $Id: options.c,v 1.20 2007/11/19 23:44:54 erik Exp $
+ * $Id: options.c,v 1.21 2007/11/19 23:53:37 erik Exp $
  */
 
 #ifdef HAVE_CONFIG_H
@@ -55,7 +55,7 @@
  * @author Erik Greenwald <erik@smluc.org>
  */
 unsigned char
-options (int argc, char **argv, FILE *io_pipes[2])
+options (int argc, char **argv, FILE * io_pipes[2])
 {
     int c;
     unsigned char method = LINE;
@@ -69,18 +69,19 @@ options (int argc, char **argv, FILE *io_pipes[2])
 	case 'f':
 	    if ((io_pipes[0] = fopen (optarg, "r")) == NULL)
 	    {
-		fprintf (stderr, gettext("Cannot open %s for reading\n"), optarg);
+		fprintf (stderr, gettext ("Cannot open %s for reading\n"),
+		    optarg);
 		return EXIT_FAILURE;
 	    }
 	    break;
 	case 'o':
-	    if ((io_pipes[1] =
-		    fopen (optarg, "w")) == NULL)
+	    if ((io_pipes[1] = fopen (optarg, "w")) == NULL)
 	    {
-		fprintf (stderr, gettext("Cannot open %s for writing\n"), optarg);
+		fprintf (stderr, gettext ("Cannot open %s for writing\n"),
+		    optarg);
 		return EXIT_FAILURE;
 	    }
-	    fchmod(fileno(io_pipes[1]), 0600);
+	    fchmod (fileno (io_pipes[1]), 0600);
 	    break;		/* oops, thanks to Tim Clapin for pointing out this ommision */
 	case 'l':
 	    method = LINE;

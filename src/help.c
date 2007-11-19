@@ -24,7 +24,7 @@
  ******************************************************************************/
 
 /*
- * $Id: help.c,v 1.15 2007/10/11 19:29:41 erik Exp $
+ * $Id: help.c,v 1.16 2007/11/19 23:53:37 erik Exp $
  */
 
 #ifdef HAVE_CONFIG_H
@@ -55,7 +55,9 @@ Usage:\n\
 \t%s [-lwvh] [-f <input file>] [-o <output file>] [-s <seed>]\n\
 \n\
 "), PACKAGE, VERSION, PACKAGE, PACKAGE, PACKAGE);
-    fprintf (stdout, gettext (" -l\t\tDisplay lines in random order\n -w\t\tDisplay words in random order\n\n"));
+    fprintf (stdout,
+	gettext
+	(" -l\t\tDisplay lines in random order\n -w\t\tDisplay words in random order\n\n"));
 }
 
 
@@ -67,5 +69,8 @@ Usage:\n\
 void
 show_version ()
 {
-    fprintf (stdout, gettext ("%s %s (C) 1998-2007 Erik Greenwald <erik@math.missouristate.edu>\n"), PACKAGE, VERSION);
+    fprintf (stdout,
+	gettext
+	("%s %s (C) 1998-2007 Erik Greenwald <erik@math.missouristate.edu>\n"),
+	PACKAGE, VERSION);
 }

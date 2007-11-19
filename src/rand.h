@@ -24,7 +24,7 @@
  ******************************************************************************/
 
 /*
- * $Id: rand.h,v 1.6 2007/10/11 19:24:49 erik Exp $
+ * $Id: rand.h,v 1.7 2007/11/19 23:53:38 erik Exp $
  */
 
 #ifndef RAND_H
@@ -38,6 +38,6 @@ struct ll {
     struct ll *next;
 };
 
-void scramble (char method, FILE *io_pipes[2]);
+void scramble (char method, FILE * io_pipes[2]);
 
 #endif

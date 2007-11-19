@@ -24,7 +24,7 @@
  ******************************************************************************/
 
 /*
- * $Id: options.h,v 1.8 2007/10/11 19:24:49 erik Exp $
+ * $Id: options.h,v 1.9 2007/11/19 23:53:37 erik Exp $
  */
 
 #ifndef OPTIONS_H
@@ -39,6 +39,6 @@ enum {
     ERR
 };
 
-unsigned char options (int argc, char **argv, FILE *io_pipes[2]);
+unsigned char options (int argc, char **argv, FILE * io_pipes[2]);
 
 #endif
