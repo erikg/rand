@@ -1,1 +1,29 @@
-This file is just a placeholder for automake.
+rand release notes. See the ChangeLog for more details.
+
+
+??? ??, 2007 - Version 1.9
+* Fixed error in man page.
+
+Aug 14, 2004 - Version 1.8
+* Bug fixes, internal improvements.
+
+Feb 15, 2000 - Version 1.7
+* Improved randomness.
+* Internationalization/localization support.
+
+Oct 10, 1999 - Version 1.6
+* Man page added.
+* -o parameter added.
+* Bug fixes.
+
+Jan 18, 1999 - Version 1.5
+* Improved argument handling.
+* Parameter scrambling removed.
+
+Dec 19, 1998 - Version 1.2
+* Greatly improved performance.
+
+Dec 11, 1998 - Version 1.0
+* Initial version.
+
+$Id: NEWS,v 1.2 2007/11/19 16:39:29 erik Exp $
