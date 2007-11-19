@@ -1,4 +1,4 @@
-# $Id: Makefile.am,v 1.15 2005/10/07 15:25:19 erik Exp $
+# $Id: Makefile.am,v 1.16 2007/11/19 22:26:01 erik Exp $
 #
 
 #if TEST
@@ -6,9 +6,12 @@
 #endif
 TEST=
 
-SUBDIRS = src docs $(TEST)
+SUBDIRS = src docs po $(TEST)
 
-EXTRA_DIST= config.rpath ChangeLog $(PACKAGE).spec.in rand.lsm.in
+EXTRA_DIST= config.rpath config.rpath ChangeLog $(PACKAGE).spec.in \
+	rand.lsm.in m4/gettext.m4 m4/iconv.m4 m4/lib-ld.m4 \
+	m4/lib-link.m4 m4/lib-prefix.m4 m4/nls.m4 m4/po.m4 \
+	m4/progtest.m4 
 
 .PHONY : rpm docs test
 rpm: dist
@@ -44,4 +47,4 @@ docs:
 grind:
 	/bin/ls | valgrind --leak-check=yes -v --show-reachable=yes --track-fds=yes --gdb-attach=yes src/rand 2> dump
 
-#ACLOCAL_AMFLAGS = -I m4
+ACLOCAL_AMFLAGS = -I m4
