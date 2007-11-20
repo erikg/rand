@@ -18,7 +18,7 @@
 #                                                                      #
 ########################################################################
 
-# $Id: configure.ac,v 1.12 2007/11/20 01:08:15 erik Exp $
+# $Id: configure.ac,v 1.13 2007/11/20 14:55:18 erik Exp $
 
 AC_INIT
 AC_CONFIG_SRCDIR([src/rand.c])
@@ -48,6 +48,7 @@ then
 fi
 
 AC_CHECK_HEADERS(unistd.h stdio.h stdlib.h string.h time.h foo.h foobar.h)
+AC_CHECK_FUNCS(drand48 fchmod)
 
 AC_CONFIG_FILES([
 	Makefile
