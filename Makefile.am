@@ -18,7 +18,7 @@
 #                                                                      #
 ########################################################################
 
-# $Id: Makefile.am,v 1.21 2007/11/20 14:56:40 erik Exp $
+# $Id: Makefile.am,v 1.22 2007/11/20 15:37:24 erik Exp $
 
 #if TEST
 #TEST=test
@@ -68,7 +68,7 @@ docs:
 grind:
 	/bin/ls | valgrind --leak-check=yes -v --show-reachable=yes --track-fds=yes --gdb-attach=yes src/rand 2> dump
 
-histo:
+hist histo histogram:
 	for a in `head -n 1000 config.log` ; do /bin/ls | src/rand | head -n 1 ; done | sort | uniq -c | sort -nr
 
 
