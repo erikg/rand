@@ -24,7 +24,7 @@
  ******************************************************************************/
 
 /*
- * $Id: rand.c,v 1.24 2007/11/20 02:11:47 erik Exp $
+ * $Id: rand.c,v 1.25 2007/11/20 14:57:05 erik Exp $
  */
 
 /* NOTE: the method I'm using to get a random number LOOKS ineffecient. But
@@ -72,7 +72,11 @@ shuffle (char **table, int size)
 
     while (n > 1)
     {
+#ifdef HAVE_DRAND48
+	int d = drand48() * n;
+#else
 	int d = ((double)rand () / RAND_MAX) * n;
+#endif
 	char *temp = table[d];
 
 	table[d] = table[n - 1];

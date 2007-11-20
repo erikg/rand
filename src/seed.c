@@ -24,8 +24,12 @@
  ******************************************************************************/
 
 /*
- * $Id: seed.c,v 1.9 2007/11/20 00:28:10 erik Exp $
+ * $Id: seed.c,v 1.10 2007/11/20 14:57:05 erik Exp $
  */
+
+#ifdef HAVE_CONFIG_H
+# include "config.h"
+#endif
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -50,12 +54,15 @@ seed_rand ()
 
     /*
      * seed the entropy pool from here, so we can override it
-     */
-    /*
+     *
      * thanks to Martin Hinsch for the +time(0)
      */
-    seed = ((unsigned int)(getpid () + time (NULL)));
+    seed = ((unsigned int)(getpid () * time (NULL)));
+#ifdef HAVE_DRAND48
+    srand48(seed);
+#else
     srand (seed);
+#endif
     sprintf (s, "/var/tmp/rand.%d", geteuid ());
     f = fopen (s, "w");
     fprintf (f, "%u\n", seed);
