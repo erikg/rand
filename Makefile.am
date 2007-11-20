@@ -18,7 +18,7 @@
 #                                                                      #
 ########################################################################
 
-# $Id: Makefile.am,v 1.19 2007/11/20 03:02:22 erik Exp $
+# $Id: Makefile.am,v 1.20 2007/11/20 03:34:50 erik Exp $
 
 #if TEST
 #TEST=test
@@ -36,10 +36,10 @@ EXTRA_DIST= config.rpath ChangeLog $(PACKAGE).spec.in rand.lsm.in \
 
 .PHONY : rpm docs test
 rpm: dist
-	cp $(PACKAGE)-$(VERSION).tar.gz ${HOME}/rpm/SOURCES/
+	cp $(PACKAGE)-$(VERSION).tar.gz /usr/src/rpm/SOURCES/
 	rpmbuild -ba $(PACKAGE).spec
-	cp ${HOME}/rpm/RPMS/i386/$(PACKAGE)-$(VERSION)-*.i386.rpm .
-	cp ${HOME}/rpm/SRPMS/$(PACKAGE)-$(VERSION)-*.src.rpm .
+	cp /usr/src/rpm/RPMS/i386/$(PACKAGE)-$(VERSION)-*.i386.rpm .
+	cp /usr/src/rpm/SRPMS/$(PACKAGE)-$(VERSION)-*.src.rpm .
 
 .PHONY : deb
 deb: dist

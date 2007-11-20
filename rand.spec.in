@@ -2,7 +2,7 @@ Summary: A pipe utility that randomizes the stream.
 Name: @PACKAGE@
 Version: @VERSION@
 Release: 1
-Copyright: GPL
+License: GPL v2.0
 Vendor: Erik Greenwald
 Url: http://math.missouristate.edu/~erik/software.php?id=7
 Group: Applications/Text
