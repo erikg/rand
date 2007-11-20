@@ -24,11 +24,11 @@
  ******************************************************************************/
 
 /*
- * $Id: options.c,v 1.22 2007/11/20 00:28:10 erik Exp $
+ * $Id: options.c,v 1.23 2007/11/20 15:00:27 erik Exp $
  */
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+# include "config.h"
 #endif
 
 #include <stdio.h>
@@ -81,7 +81,9 @@ options (int argc, char **argv, FILE * io_pipes[2])
 		    optarg);
 		return EXIT_FAILURE;
 	    }
+#ifdef HAVE_FCHMOD
 	    fchmod (fileno (io_pipes[1]), 0600);
+#endif
 	    break;		/* oops, thanks to Tim Clapin for pointing out this ommision */
 	case 'l':
 	    method = LINE;
