@@ -24,7 +24,7 @@
  ******************************************************************************/
 
 /*
- * $Id: seed.c,v 1.10 2007/11/20 14:57:05 erik Exp $
+ * $Id: seed.c,v 1.11 2007/11/20 15:30:52 erik Exp $
  */
 
 #ifdef HAVE_CONFIG_H
@@ -36,7 +36,16 @@
 #include <unistd.h>
 #include <string.h>
 #include <time.h>
+
 #include "seed.h"
+
+#if HAVE_GETEUID
+# define GETUID geteuid()
+#elif HAVE_GETUID
+# define GETUID getuid()
+#else
+# define GETUID 0
+#endif
 
 /*
  * Write out the random seed. This is done on each pass per euid, so if an
@@ -63,7 +72,7 @@ seed_rand ()
 #else
     srand (seed);
 #endif
-    sprintf (s, "/var/tmp/rand.%d", geteuid ());
+    sprintf (s, "/var/tmp/rand.%d", GETUID);
     f = fopen (s, "w");
     fprintf (f, "%u\n", seed);
     fclose (f);
@@ -80,7 +89,7 @@ old_seed ()
     FILE *f;
     char s[1024];
 
-    sprintf (s, "/var/tmp/rand.%d", geteuid ());
+    sprintf (s, "/var/tmp/rand.%d", GETUID);
     f = fopen (s, "r");
     fscanf (f, "%u\n", &seed);
     fclose (f);
