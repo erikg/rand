@@ -24,7 +24,7 @@
  ******************************************************************************/
 
 /*
- * $Id: seed.c,v 1.12 2007/11/20 19:23:00 erik Exp $
+ * $Id: seed.c,v 1.13 2007/11/20 20:59:05 erik Exp $
  */
 
 #ifdef HAVE_CONFIG_H
@@ -73,7 +73,8 @@ seed_rand ()
     srand (seed);
 #endif
     sprintf (s, "/var/tmp/rand.%d", GETUID);
-    f = fopen (s, "w");
+    if((f = fopen (s, "w")) == NULL)
+	    return;
     fprintf (f, "%u\n", seed);
     fclose (f);
     return;
@@ -90,10 +91,15 @@ old_seed ()
     char s[1024];
 
     sprintf (s, "/var/tmp/rand.%d", GETUID);
-    f = fopen (s, "r");
+    if( (f = fopen (s, "r")) == NULL)
+	    return;
     fscanf (f, "%u\n", &seed);
     fclose (f);
+#ifdef HAVE_DRAND48
+    srand48 (seed);
+#else
     srand (seed);
+#endif
     return;
 }
 

@@ -1,5 +1,6 @@
 
 20071120:
+	* fixed crash if /var/tmp didn't exist.
 	* memory leak fixed.
 	* major simplification of rand.c.
 	* windows support.
@@ -67,4 +68,4 @@
 19981211:
 	* Initial public release, version 1.0.
 
-$Id: ChangeLog,v 1.11 2007/11/20 19:50:11 erik Exp $
+$Id: ChangeLog,v 1.12 2007/11/20 20:59:50 erik Exp $
