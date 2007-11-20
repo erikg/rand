@@ -18,7 +18,7 @@
 #                                                                      #
 ########################################################################
 
-# $Id: Makefile.am,v 1.23 2007/11/20 16:33:24 erik Exp $
+# $Id: Makefile.am,v 1.24 2007/11/20 19:38:49 erik Exp $
 
 #if TEST
 #TEST=test
@@ -27,14 +27,7 @@ TEST=
 
 SUBDIRS = debian m4 src docs po $(TEST)
 
-EXTRA_DIST= config.rpath ChangeLog $(PACKAGE).spec.in rand.lsm.in \
-	m4/gettext.m4 m4/iconv.m4 m4/lib-ld.m4 m4/lib-link.m4 \
-	m4/lib-prefix.m4 m4/nls.m4 m4/po.m4 m4/progtest.m4 \
-	debian/README debian/README.Debian debian/changelog debian/compat \
-	debian/control debian/copyright debian/dirs debian/docs \
-	debian/files debian/rand.substvars debian/rules TODO
-
-.PHONY : rpm docs test
+.PHONY : rpm docs test indent lint grind hist histo histogram
 rpm: dist
 	cp $(PACKAGE)-$(VERSION).tar.gz /usr/src/rpm/SOURCES/
 	rpmbuild -ba $(PACKAGE).spec
@@ -49,12 +42,8 @@ deb: dist
 	(cd $(PACKAGE)-$(VERSION) && debuild -us -uc)
 	rm -rf $(PACKAGE)-$(VERSION)
 
-packages: rpm
-
-lint:
-	make -C src lint
-indent:
-	make -C src indent
+lint indent:
+	make -C src $@
 
 test:
 	make -C test test
@@ -66,10 +55,14 @@ docs:
 	ps2pdf refman.ps
 
 grind:
-	/bin/ls | valgrind --leak-check=yes -v --show-reachable=yes --track-fds=yes --gdb-attach=yes src/rand 2> dump
+	/bin/ls | valgrind --leak-check=yes -v --show-reachable=yes --track-fds=yes src/rand 2> dump
 
 hist histo histogram:
 	for a in `head -n 1000 config.log` ; do /bin/ls | src/rand | head -n 1 ; done | sort | uniq -c | sort -nr
 
+fhist fhisto fhistogram:
+	for a in `head -n 100 config.log` ; do /bin/ls | src/rand | head -n 1 ; done | sort | uniq -c | sort -nr
+
+EXTRA_DIST= config.rpath ChangeLog $(PACKAGE).spec.in rand.lsm.in TODO
 
 ACLOCAL_AMFLAGS = -I m4
