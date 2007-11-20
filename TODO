@@ -1,0 +1,15 @@
+
+soonish
+
+* Use getopt_long if available
+* more testing
+* automatic statistical analysis
+* more documentation and examples
+* fix up the 'saved seed' stuff
+
+
+for 2.0
+
+* mode to output a sequence of random numbers, possibly with user selectable distributions
+
+$Id: TODO,v 1.2 2007/11/20 16:30:20 erik Exp $
