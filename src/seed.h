@@ -4,9 +4,9 @@
  *    Usage:
  *        blah | rand [-lw] [-o output file]
  *        rand [-lw] -f <file> [-o output file]
- * 	
+ *
  *     Copyright (C) 1998-2007 Erik Greenwald <erik@smluc.org>
- * 
+ *
  *     This program is free software; you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
  *     the Free Software Foundation; either version 2 of the License, or
@@ -24,7 +24,7 @@
  ******************************************************************************/
 
 /*
- * $Id: seed.h,v 1.6 2007/10/11 19:24:49 erik Exp $
+ * $Id: seed.h,v 1.7 2007/11/20 00:28:10 erik Exp $
  */
 
 #ifndef SEED_H

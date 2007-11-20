@@ -18,7 +18,7 @@
 #                                                                      #
 ########################################################################
 
-# $Id: Makefile.am,v 1.17 2007/11/20 00:20:10 erik Exp $
+# $Id: Makefile.am,v 1.18 2007/11/20 00:31:33 erik Exp $
 
 #if TEST
 #TEST=test
@@ -30,7 +30,7 @@ SUBDIRS = src docs po $(TEST)
 EXTRA_DIST= config.rpath config.rpath ChangeLog $(PACKAGE).spec.in \
 	rand.lsm.in m4/gettext.m4 m4/iconv.m4 m4/lib-ld.m4 \
 	m4/lib-link.m4 m4/lib-prefix.m4 m4/nls.m4 m4/po.m4 \
-	m4/progtest.m4 
+	m4/progtest.m4
 
 .PHONY : rpm docs test
 rpm: dist
@@ -40,7 +40,7 @@ rpm: dist
 	cp ${HOME}/rpm/SRPMS/$(PACKAGE)-$(VERSION)-*.src.rpm .
 
 .PHONY : deb
-deb: 
+deb:
 	debian/rules
 	debuild
 	debc
@@ -59,7 +59,7 @@ test:
 
 docs:
 	doxygen docs/doxygen.conf
-	make -C docs/doxygen/latex 
+	make -C docs/doxygen/latex
 	dvips -f docs/doxygen/latex/refman.dvi > refman.ps
 	ps2pdf refman.ps
 

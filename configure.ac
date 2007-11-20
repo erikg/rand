@@ -18,7 +18,7 @@
 #                                                                      #
 ########################################################################
 
-# $Id: configure.ac,v 1.10 2007/11/20 00:19:58 erik Exp $
+# $Id: configure.ac,v 1.11 2007/11/20 00:31:33 erik Exp $
 
 AC_INIT
 AC_CONFIG_SRCDIR([src/rand.c])
@@ -49,7 +49,7 @@ fi
 
 AC_CHECK_HEADERS(unistd.h stdio.h stdlib.h string.h time.h foo.h foobar.h)
 
-AC_CONFIG_FILES([ 
+AC_CONFIG_FILES([
 	Makefile
 	docs/Makefile
 	docs/doxygen.conf

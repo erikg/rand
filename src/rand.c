@@ -4,9 +4,9 @@
  *    Usage:
  *        blah | rand [-lw] [-o output file]
  *        rand [-lw] -f <file> [-o output file]
- * 	
+ *
  *     Copyright (C) 1998-2007 Erik Greenwald <erik@smluc.org>
- * 
+ *
  *     This program is free software; you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
  *     the Free Software Foundation; either version 2 of the License, or
@@ -24,20 +24,20 @@
  ******************************************************************************/
 
 /*
- * $Id: rand.c,v 1.22 2007/11/19 23:53:37 erik Exp $
+ * $Id: rand.c,v 1.23 2007/11/20 00:28:10 erik Exp $
  */
 
 /* NOTE: the method I'm using to get a random number LOOKS ineffecient. But
- * that's on purpose. random number generators tend to make the most 
+ * that's on purpose. random number generators tend to make the most
  * significant bits the most random, and the least significant the least
  * random, to generate the optimal spread across the entire range. When a
- * modulus is used to extract the number inside of the range, it takes the 
+ * modulus is used to extract the number inside of the range, it takes the
  * LEAST significant bits, which are the least random. When a plain old slow
  * division is done, it takes the MOST significant bits. This isn't a serious
- * speed loss because % calls a div opcode anyways.       
+ * speed loss because % calls a div opcode anyways.      
  *
  * thanks to Dr Shade shade@csc.smsu.edu for the fast table munging algorithm
- * 
+ *
  * thanks to Martin Hinsch mhinsch@informatik.uni-osnabrueck.de for the better
  * srand parms  [ srand(getpid()+time()) instead of srand(getpid()) ]
  *
@@ -239,7 +239,7 @@ scramble (char method, FILE * io_pipes[2])
     freelist (llist, ptr);
 
     /*
-     * shuffle it  (thanks to Dr Shade) 
+     * shuffle it  (thanks to Dr Shade)
      */
     shuffle (table, size);
 

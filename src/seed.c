@@ -4,9 +4,9 @@
  *    Usage:
  *        blah | rand [-lw] [-o output file]
  *        rand [-lw] -f <file> [-o output file]
- * 	
+ *
  *     Copyright (C) 1998-2007 Erik Greenwald <erik@smluc.org>
- * 
+ *
  *     This program is free software; you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
  *     the Free Software Foundation; either version 2 of the License, or
@@ -24,7 +24,7 @@
  ******************************************************************************/
 
 /*
- * $Id: seed.c,v 1.8 2007/10/11 19:24:49 erik Exp $
+ * $Id: seed.c,v 1.9 2007/11/20 00:28:10 erik Exp $
  */
 
 #include <stdio.h>
@@ -49,10 +49,10 @@ seed_rand ()
     char s[1024];
 
     /*
-     * seed the entropy pool from here, so we can override it 
+     * seed the entropy pool from here, so we can override it
      */
     /*
-     * thanks to Martin Hinsch for the +time(0) 
+     * thanks to Martin Hinsch for the +time(0)
      */
     seed = ((unsigned int)(getpid () + time (NULL)));
     srand (seed);
