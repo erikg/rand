@@ -24,7 +24,7 @@
  ******************************************************************************/
 
 /*
- * $Id: seed.c,v 1.11 2007/11/20 15:30:52 erik Exp $
+ * $Id: seed.c,v 1.12 2007/11/20 19:23:00 erik Exp $
  */
 
 #ifdef HAVE_CONFIG_H
@@ -68,7 +68,7 @@ seed_rand ()
      */
     seed = ((unsigned int)(getpid () * time (NULL)));
 #ifdef HAVE_DRAND48
-    srand48(seed);
+    srand48 (seed);
 #else
     srand (seed);
 #endif
