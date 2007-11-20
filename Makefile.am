@@ -18,7 +18,7 @@
 #                                                                      #
 ########################################################################
 
-# $Id: Makefile.am,v 1.18 2007/11/20 00:31:33 erik Exp $
+# $Id: Makefile.am,v 1.19 2007/11/20 03:02:22 erik Exp $
 
 #if TEST
 #TEST=test
@@ -27,10 +27,12 @@ TEST=
 
 SUBDIRS = src docs po $(TEST)
 
-EXTRA_DIST= config.rpath config.rpath ChangeLog $(PACKAGE).spec.in \
-	rand.lsm.in m4/gettext.m4 m4/iconv.m4 m4/lib-ld.m4 \
-	m4/lib-link.m4 m4/lib-prefix.m4 m4/nls.m4 m4/po.m4 \
-	m4/progtest.m4
+EXTRA_DIST= config.rpath ChangeLog $(PACKAGE).spec.in rand.lsm.in \
+	m4/gettext.m4 m4/iconv.m4 m4/lib-ld.m4 m4/lib-link.m4 \
+	m4/lib-prefix.m4 m4/nls.m4 m4/po.m4 m4/progtest.m4 \
+	debian/README debian/README.Debian debian/changelog debian/compat \
+	debian/control debian/copyright debian/dirs debian/docs \
+	debian/files debian/rand.substvars debian/rules TODO
 
 .PHONY : rpm docs test
 rpm: dist
@@ -40,12 +42,12 @@ rpm: dist
 	cp ${HOME}/rpm/SRPMS/$(PACKAGE)-$(VERSION)-*.src.rpm .
 
 .PHONY : deb
-deb:
-	debian/rules
-	debuild
-	debc
-	debi
-	release
+deb: dist
+	rm -rf $(PACKAGE)-$(VERSION)
+	tar zxvf $(PACKAGE)-$(VERSION).tar.gz
+	(cd $(PACKAGE)-$(VERSION) && fakeroot debian/rules binary)
+	(cd $(PACKAGE)-$(VERSION) && debuild -us -uc)
+	rm -rf $(PACKAGE)-$(VERSION)
 
 packages: rpm
 

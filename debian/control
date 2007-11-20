@@ -2,12 +2,13 @@ Source: rand
 Section: text
 Priority: optional
 Maintainer: Erik Greenwald <erik@smluc.org>
-Standards-Version: 3.1.1
+Build-Depends: debhelper (>= 5), autotools-dev
+Standards-Version: 3.7.2
+
 Package: rand
-Architecture: i386
-Depends: ${shlibs:Depends}
-Description: A pipe utility that randomizes the stream.
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: A pipe utility that randomizes the stream
  This program will take a file, input stream, or list of 'words' and repeat
  them in a random order to the given output file or stdout. Kinda the opposite
  of sort...
-
