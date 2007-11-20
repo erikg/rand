@@ -15,7 +15,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8-BITS\n"
 
 #: src/help.c:49
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "%s %s (C) 1998-2007 Erik Greenwald <erik@math.missouristate.edu>\n"
 "%s comes with ABSOLUTELY NO WARRANTY. Please read the GPL for details.\n"
@@ -46,7 +46,7 @@ msgstr ""
 "\n"
 
 #: src/help.c:74
-#, fuzzy, c-format
+#, c-format
 msgid "%s %s (C) 1998-2007 Erik Greenwald <erik@math.missouristate.edu>\n"
 msgstr ""
 "%s %s (C) 1998-2007 Erik Greenwald <erik@math.missouristate.edu>\n"
@@ -64,4 +64,4 @@ msgstr "Não foi possível abrir %s para escrita\n"
 
 #: src/rand.c:66
 msgid "Abort: could not allocate memory\n"
-msgstr ""
+msgstr "(translate me) Abort: could not allocate memory\n"
