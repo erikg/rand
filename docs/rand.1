@@ -18,7 +18,7 @@
 .\"===========================================================================
 .\" rand.1 man page for rand
 .\" http://math.missouristate.edu/~erik/software.php?id=7
-.\" $Id: rand.1,v 1.5 2007/11/20 00:29:20 erik Exp $
+.\" $Id: rand.1,v 1.6 2007/11/20 00:31:12 erik Exp $
 .\"===========================================================================
 .Dd December 11, 1998
 .Dt RAND 1
@@ -37,25 +37,27 @@
 .\"===========================================================================
 .Sh DESCRIPTION
 .Nm
-has 2 major modes of operation. The first is as a pipe. The second is to act
-on a specified file. There are 2 minor modes of operation, the data can be
-randomized by line or word.
+has 2 major modes of operation.
+The first is as a pipe.
+The second is to act on a specified file.
+There are 2 minor modes of operation, the data can be randomized by line or word.
 .Pp
 As a pipe,
 .Nm
-collects the stream until it terminates, then displays the randomized results
-of this completed stream. If the stream is the result of several operations,
-then the stream as a whole is randomized.
+collects the stream until it terminates, then displays the randomized results of this completed stream.
+If the stream is the result of several operations, then the stream as a whole is randomized.
 .Pp
 When operating on a file,
 .Nm
 will read the input from a single given file, and display the results to stdout.
 .Pp
-The two command line parameters control if the randomization is per line or word. The default behavior is to randomize by line.
+The two command line parameters control if the randomization is per line or word.
+The default behavior is to randomize by line.
 .Nm
 .B -w
-will randomize by word, and return one word on every line. A word in this sense
-is any string delimited by a whitespace. Tabs, spaces, and newlines are ignored.
+will randomize by word, and return one word on every line.
+A word in this sense is any string delimited by a whitespace.
+Tabs, spaces, and newlines are ignored.
 .Pp
 .\"===========================================================================
 .Sh OPTIONS
@@ -93,8 +95,8 @@ play `find -name *.wav |
 .\"===========================================================================
 .Sh DIAGNOSTICS
 .Nm
-returns EXIT_SUCCESS on success or EXIT_FAILURE on failure. The only cases
-where EXIT_FAILURE may be returned are
+returns EXIT_SUCCESS on success or EXIT_FAILURE on failure.
+The only cases where EXIT_FAILURE may be returned are
 .Bl -bullet
 .It
 \-f file can not be read.
@@ -116,7 +118,8 @@ got tired of hacking things to shuffle stuff.
 .\"===========================================================================
 .Sh BUGS
 .Nm
-has no known bugs. Please report any to
+has no known bugs.
+Please report any to
 .An <erik@smluc.org>
 .\"===========================================================================
 .Sh AUTHOR
