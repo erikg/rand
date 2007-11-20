@@ -1,5 +1,8 @@
 
 20071119:
+	* rpm support updated to the current stuff.
+	* debian support update to current stuff.
+	* gettext support update to current stuff.
 	* fixed a minor possible memory leak.
 	* gaurding against a buffer overflow on very large lines.
 	* fix bug with FILE* being passed to fchmod.
@@ -56,4 +59,4 @@
 19981211:
 	* Initial public release, version 1.0.
 
-$Id: ChangeLog,v 1.8 2007/11/20 02:13:57 erik Exp $
+$Id: ChangeLog,v 1.9 2007/11/20 03:35:11 erik Exp $
