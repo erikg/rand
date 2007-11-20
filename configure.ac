@@ -1,9 +1,41 @@
-dnl $Id: configure.ac,v 1.9 2007/11/19 22:26:44 erik Exp $
+########################################################################
+# rand                                                                 #
+# Copyright (C) 1998-2007 Erik Greenwald <erik@smluc.org>              #
+#                                                                      #
+# This program is free software; you can redistribute it and/or modify #
+# it under the terms of the GNU General Public License as published by #
+# the Free Software Foundation; either version 2 of the License, or    #
+# (at your option) any later version.                                  #
+#                                                                      #
+# This program is distributed in the hope that it will be useful,      #
+# but WITHOUT ANY WARRANTY; without even the implied warranty of       #
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the        #
+# GNU General Public License for more details.                         #
+#                                                                      #
+# You should have received a copy of the GNU General Public License    #
+# along with this program; if not, write to the Free Software          #
+# Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.            #
+#                                                                      #
+########################################################################
+
+# $Id: configure.ac,v 1.10 2007/11/20 00:19:58 erik Exp $
 
 AC_INIT
 AC_CONFIG_SRCDIR([src/rand.c])
 AM_CONFIG_HEADER(config.h)
 AM_INIT_AUTOMAKE(rand, 1.8)
+
+AC_DEFUN([SEARCH],[DIR="$1"
+AC_MSG_CHECKING([for $DIR])
+if test -d $DIR/include ; then
+	AC_MSG_RESULT([found, adding $DIR to search paths])
+	CPPFLAGS="$CPPFLAGS -I$DIR/include"
+	if test -d $DIR/lib ; then LDFLAGS="$LDFLAGS -L$DIR/lib"; fi
+else AC_MSG_RESULT([not found]); fi ])
+
+SEARCH(/usr/local)
+SEARCH(/opt/local)
+SEARCH(/sw)
 
 AC_PROG_CC
 AC_PROG_INSTALL
