@@ -24,7 +24,7 @@
  ******************************************************************************/
 
 /*
- * $Id: rand.c,v 1.23 2007/11/20 00:28:10 erik Exp $
+ * $Id: rand.c,v 1.24 2007/11/20 02:11:47 erik Exp $
  */
 
 /* NOTE: the method I'm using to get a random number LOOKS ineffecient. But
@@ -100,6 +100,7 @@ readlines (FILE * io_pipes[2], struct ll *ptr, int *size)
 	if (m->data == NULL)
 	{
 	    printf ("%s", NOMEM);
+	    free(m);
 	    return NULL;
 	}
 	memcpy (m->data, blah, strlen (blah) * sizeof (char) + 1);
@@ -115,9 +116,10 @@ readlines (FILE * io_pipes[2], struct ll *ptr, int *size)
 static struct ll *
 readwords (FILE * io_pipes[2], struct ll *ptr, int *size)
 {
-    char blah[BUFSIZ];
+    char blah[4096];
 
-    while (fscanf (io_pipes[0], "%s", blah) != EOF)
+    blah[4095] = '\0';
+    while (fscanf (io_pipes[0], "%4095s", blah) != EOF)
     {
 	struct ll *m = malloc (sizeof (struct ll));
 
