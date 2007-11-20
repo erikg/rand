@@ -24,7 +24,7 @@
  ******************************************************************************/
 
 /*
- * $Id: rand.c,v 1.27 2007/11/20 20:40:10 erik Exp $
+ * $Id: rand.c,v 1.28 2007/11/20 20:55:24 erik Exp $
  */
 
 /* 
@@ -99,6 +99,7 @@ readlines (FILE * io_pipes[2], int *size)
 
     while (fgets (blah, BUFSIZ, io_pipes[0]))
     {
+	int len;
 	struct ll *m = malloc (sizeof (struct ll));
 
 	if (head == NULL)
