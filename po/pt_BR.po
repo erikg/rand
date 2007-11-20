@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: rand 1.7\n"
-"Report-Msgid-Bugs-To: erik@smluc.org\n"
-"POT-Creation-Date: 2004-08-14 15:11-0400\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2007-11-19 19:41-0500\n"
 "PO-Revision-Date: 2000-03-14 15:00-0300\n"
 "Last-Translator: Rodrigo Parra Novo <rodarvus@conectiva.com.br>\n"
 "Language-Team: Brazilian Portuguese <ldp-br@bazar.conectiva.com.br>\n"
@@ -34,7 +34,7 @@ msgstr ""
 "\t%s [-lwvh] [-f <arquivo de entrada>] [-o <arquivo de saída>]\n"
 "\n"
 
-#: src/help.c:58
+#: src/help.c:60
 #, c-format
 msgid ""
 " -l\t\tDisplay lines in random order\n"
@@ -45,7 +45,7 @@ msgstr ""
 " -w\t\tMostra palavras em ordem randômica\n"
 "\n"
 
-#: src/help.c:70
+#: src/help.c:74
 #, fuzzy, c-format
 msgid "%s %s (C) 1998-2007 Erik Greenwald <erik@math.missouristate.edu>\n"
 msgstr ""
