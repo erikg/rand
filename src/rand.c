@@ -24,7 +24,7 @@
  ******************************************************************************/
 
 /*
- * $Id: rand.c,v 1.26 2007/11/20 19:38:10 erik Exp $
+ * $Id: rand.c,v 1.27 2007/11/20 20:40:10 erik Exp $
  */
 
 /* 
@@ -51,8 +51,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include <string.h>
 #include <time.h>
+
+#ifdef HAVE_STRING_H
+# include <string.h>
+#elif HAVE_STRINGS_H
+# include <strings.h>
+#endif
 
 #ifdef ENABLE_NLS
 # include <libintl.h>
@@ -62,7 +67,6 @@
 #include "options.h"
 #include "rand.h"
 #include "seed.h"
-
 
 #define NOMEM gettext("Abort: could not allocate memory\n")
 
@@ -108,13 +112,16 @@ readlines (FILE * io_pipes[2], int *size)
 	    printf ("%s", NOMEM);
 	    return NULL;
 	}
-	m->data = strdup (blah);
+	len = strlen(blah);
+	m->data = (char *)malloc(sizeof(char) * (len+1));
 	if (m->data == NULL)
 	{
 	    printf ("%s", NOMEM);
 	    free (m);
 	    return NULL;
 	}
+	strncpy(m->data, blah, len);
+	m->data[len] = '\0';
 	m->next = NULL;
 	size[0]++;
     }
