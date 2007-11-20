@@ -62,6 +62,6 @@ msgstr "Não foi possível abrir %s para leitura\n"
 msgid "Cannot open %s for writing\n"
 msgstr "Não foi possível abrir %s para escrita\n"
 
-#: src/rand.c:66
+#: src/rand.c:71
 msgid "Abort: could not allocate memory\n"
 msgstr "(translate me) Abort: could not allocate memory\n"

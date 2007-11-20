@@ -49,6 +49,6 @@ msgstr ""
 msgid "Cannot open %s for writing\n"
 msgstr ""
 
-#: src/rand.c:66
+#: src/rand.c:71
 msgid "Abort: could not allocate memory\n"
 msgstr ""
