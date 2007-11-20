@@ -18,12 +18,12 @@
 #                                                                      #
 ########################################################################
 
-# $Id: configure.ac,v 1.11 2007/11/20 00:31:33 erik Exp $
+# $Id: configure.ac,v 1.12 2007/11/20 01:08:15 erik Exp $
 
 AC_INIT
 AC_CONFIG_SRCDIR([src/rand.c])
 AM_CONFIG_HEADER(config.h)
-AM_INIT_AUTOMAKE(rand, 1.8)
+AM_INIT_AUTOMAKE(rand, 1.9)
 
 AC_DEFUN([SEARCH],[DIR="$1"
 AC_MSG_CHECKING([for $DIR])
