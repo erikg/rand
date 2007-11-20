@@ -18,7 +18,7 @@
 #                                                                      #
 ########################################################################
 
-# $Id: configure.ac,v 1.14 2007/11/20 15:37:09 erik Exp $
+# $Id: configure.ac,v 1.15 2007/11/20 16:33:24 erik Exp $
 
 AC_INIT
 AC_CONFIG_SRCDIR([src/rand.c])
@@ -53,8 +53,10 @@ AC_CHECK_FUNCS([atoi drand48 fchmod fclose fgets fopen fprintf free fscanf geteu
 
 AC_CONFIG_FILES([
 	Makefile
+	debian/Makefile
 	docs/Makefile
 	docs/doxygen.conf
+	m4/Makefile
 	po/Makefile.in
 	rand.lsm
 	rand.spec

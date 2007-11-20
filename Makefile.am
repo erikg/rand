@@ -18,14 +18,14 @@
 #                                                                      #
 ########################################################################
 
-# $Id: Makefile.am,v 1.22 2007/11/20 15:37:24 erik Exp $
+# $Id: Makefile.am,v 1.23 2007/11/20 16:33:24 erik Exp $
 
 #if TEST
 #TEST=test
 #endif
 TEST=
 
-SUBDIRS = src docs po $(TEST)
+SUBDIRS = debian m4 src docs po $(TEST)
 
 EXTRA_DIST= config.rpath ChangeLog $(PACKAGE).spec.in rand.lsm.in \
 	m4/gettext.m4 m4/iconv.m4 m4/lib-ld.m4 m4/lib-link.m4 \
