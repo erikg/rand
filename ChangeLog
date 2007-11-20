@@ -1,9 +1,11 @@
 
 20071120:
-	* windows support
-	* portability fixes
-	* improved randomness on platforms with drand48()
-	* fixed longstanding 'first element' bug on fbsd
+	* memory leak fixed.
+	* major simplification of rand.c.
+	* windows support.
+	* portability fixes.
+	* improved randomness on platforms with drand48().
+	* fixed longstanding 'first element' bug on fbsd.
 
 20071119:
 	* rpm support updated to the current stuff.
@@ -65,4 +67,4 @@
 19981211:
 	* Initial public release, version 1.0.
 
-$Id: ChangeLog,v 1.10 2007/11/20 16:00:00 erik Exp $
+$Id: ChangeLog,v 1.11 2007/11/20 19:50:11 erik Exp $
