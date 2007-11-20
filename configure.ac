@@ -18,7 +18,7 @@
 #                                                                      #
 ########################################################################
 
-# $Id: configure.ac,v 1.13 2007/11/20 14:55:18 erik Exp $
+# $Id: configure.ac,v 1.14 2007/11/20 15:37:09 erik Exp $
 
 AC_INIT
 AC_CONFIG_SRCDIR([src/rand.c])
@@ -47,8 +47,9 @@ then
 	AC_DEFINE(gettext,,No gettext)
 fi
 
-AC_CHECK_HEADERS(unistd.h stdio.h stdlib.h string.h time.h foo.h foobar.h)
-AC_CHECK_FUNCS(drand48 fchmod)
+AC_CHECK_HEADERS(check.h fcntl.h stdio.h stdlib.h string.h sys/stat.h time.h unistd.h)
+AC_CHECK_FUNCS([atoi drand48 fchmod fclose fgets fopen fprintf free fscanf geteuid \
+	getopt getuid malloc memcpy printf rand sprintf srand48 strlen])
 
 AC_CONFIG_FILES([
 	Makefile
