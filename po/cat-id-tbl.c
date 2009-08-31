@@ -9,7 +9,7 @@
 const struct _msg_ent _msg_tbl[] = {
   {"", 1},
   {"\
-%s %s (C) 1998-2009 Erik Greenwald <erik@math.missouristate.edu>\n\
+%s %s (C) 1998-2009 Erik Greenwald <erik@smluc.org>\n\
 %s comes with ABSOLUTELY NO WARRANTY. Please read the GPL for details.\n\
 \n\
 Usage:\n\
@@ -20,7 +20,7 @@ Usage:\n\
  -l\t\tDisplay lines in random order\n\
  -w\t\tDisplay words in random order\n\
 \n", 3},
-  {"%s %s (C) 1998-2009 Erik Greenwald <erik@math.missouristate.edu>\n", 4},
+  {"%s %s (C) 1998-2009 Erik Greenwald <erik@smluc.org>\n", 4},
   {"Cannot open %s for reading\n", 5},
   {"Cannot open %s for writing\n", 6},
 };

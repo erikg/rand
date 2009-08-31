@@ -18,7 +18,7 @@ other:
 Installation: read INSTALL.
 
 Bug reports:
-	email erik@math.missouristate.edu, provide as much useful info as possible.
+	email erik@smluc.org, provide as much useful info as possible.
 
 What to do with this? well, you can queue up programs in a random order... someone was complaining about mpg123 not having a 'shuffle' command (which it does), this could provide that. A teacher writing a test could use this to generate tests that have the same questions but in different order... etc etc etc. One interesting use was a sysadmin using this to scramble 'script kiddies' exploit sources. While not completely ethical, it's terribly amusing :)
 

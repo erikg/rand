@@ -4,11 +4,11 @@ Version:        @VERSION@
 Entered-date:   Jan 16 1998
 Description:    utility to display files or streams in random order
 Keywords:       random pipe sort shuffle order
-Author:         Erik Greenwald <erik@math.missouristate.edu> <erik@smluc.org>
-Maintained-by:  Erik Greenwald <erik@math.missouristate.edu> <erik@smluc.org>
-Primary-site:   http://math.missouristate.edu/~erik/software.php?id=7
+Author:         Erik Greenwald <erik@smluc.org> <erik@bz.bzflag.bz>
+Maintained-by:  Erik Greenwald <erik@smluc.org> <erik@bz.bzflag.bz>
+Primary-site:   http://bz.bzflag.bz/~erik/software.php?id=7
 Alternate-site:
-Original-site:  http://math.missouristate.edu/~erik/software.php?id=7
+Original-site:  http://bz.bzflag.bz/~erik/software.php?id=7
 Platforms:      Linux, Unix, MacOS.X, Windows? (all?)
 Copying-policy: GNU Copyright
 End

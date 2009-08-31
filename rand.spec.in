@@ -4,9 +4,9 @@ Version: @VERSION@
 Release: 1
 License: GPL v2.0
 Vendor: Erik Greenwald
-Url: http://math.missouristate.edu/~erik/software.php?id=7
+Url: http://bz.bzflag.bz/~erik/software.php?id=7
 Group: Applications/Text
-Source0: http://math.missouristate.edu/~erik/files/@PACKAGE@-@VERSION@.tar.gz
+Source0: http://bz.bzflag.bz/~erik/files/@PACKAGE@-@VERSION@.tar.gz
 Buildroot: /var/tmp/@PACKAGE@
 
 %description

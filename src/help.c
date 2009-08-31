@@ -24,7 +24,7 @@
  ******************************************************************************/
 
 /*
- * $Id: help.c,v 1.18 2009/08/31 17:40:38 erik Exp $
+ * $Id: help.c,v 1.19 2009/08/31 17:47:39 erik Exp $
  */
 
 #ifdef HAVE_CONFIG_H
@@ -47,7 +47,7 @@ void
 show_help ()
 {
     fprintf (stdout, gettext ("\
-%s %s (C) 1998-2009 Erik Greenwald <erik@math.missouristate.edu>\n\
+%s %s (C) 1998-2009 Erik Greenwald <erik@smluc.org>\n\
 %s comes with ABSOLUTELY NO WARRANTY. Please read the GPL for details.\n\
 \n\
 Usage:\n\
@@ -71,6 +71,6 @@ show_version ()
 {
     fprintf (stdout,
 	gettext
-	("%s %s (C) 1998-2009 Erik Greenwald <erik@math.missouristate.edu>\n"),
+	("%s %s (C) 1998-2009 Erik Greenwald <erik@smluc.org>\n"),
 	PACKAGE, VERSION);
 }
