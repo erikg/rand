@@ -17,7 +17,7 @@ msgstr ""
 #: src/help.c:49
 #, c-format
 msgid ""
-"%s %s (C) 1998-2007 Erik Greenwald <erik@math.missouristate.edu>\n"
+"%s %s (C) 1998-2009 Erik Greenwald <erik@math.missouristate.edu>\n"
 "%s comes with ABSOLUTELY NO WARRANTY. Please read the GPL for details.\n"
 "\n"
 "Usage:\n"
@@ -36,7 +36,7 @@ msgstr ""
 
 #: src/help.c:74
 #, c-format
-msgid "%s %s (C) 1998-2007 Erik Greenwald <erik@math.missouristate.edu>\n"
+msgid "%s %s (C) 1998-2009 Erik Greenwald <erik@math.missouristate.edu>\n"
 msgstr ""
 
 #: src/options.c:72

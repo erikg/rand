@@ -1,3 +1,5 @@
+20090831:
+	* update copyright notice
 
 20071120:
 	* fixed crash if /var/tmp didn't exist.
@@ -68,4 +70,4 @@
 19981211:
 	* Initial public release, version 1.0.
 
-$Id: ChangeLog,v 1.12 2007/11/20 20:59:50 erik Exp $
+$Id: ChangeLog,v 1.13 2009/08/31 17:40:38 erik Exp $

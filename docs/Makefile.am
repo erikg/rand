@@ -1,6 +1,6 @@
 ########################################################################
 # rand                                                                 #
-# Copyright (C) 1998-2007 Erik Greenwald <erik@smluc.org>              #
+# Copyright (C) 1998-2009 Erik Greenwald <erik@smluc.org>              #
 #                                                                      #
 # This program is free software; you can redistribute it and/or modify #
 # it under the terms of the GNU General Public License as published by #
@@ -18,7 +18,7 @@
 #                                                                      #
 ########################################################################
 
-# $Id: Makefile.am,v 1.4 2007/11/20 21:00:12 erik Exp $
+# $Id: Makefile.am,v 1.5 2009/08/31 17:40:38 erik Exp $
 
 man_MANS = rand.1
 
