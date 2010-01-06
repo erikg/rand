@@ -1,6 +1,6 @@
 ########################################################################
 # rand                                                                 #
-# Copyright (C) 1998-2009 Erik Greenwald <erik@smluc.org>              #
+# Copyright (C) 1998-2010 Erik Greenwald <erik@smluc.org>              #
 #                                                                      #
 # This program is free software; you can redistribute it and/or modify #
 # it under the terms of the GNU General Public License as published by #
@@ -18,7 +18,7 @@
 #                                                                      #
 ########################################################################
 
-# $Id: configure.ac,v 1.17 2009/08/31 17:40:38 erik Exp $
+# $Id: configure.ac,v 1.18 2010/01/06 01:06:25 erik Exp $
 
 AC_INIT
 AC_CONFIG_SRCDIR([src/rand.c])

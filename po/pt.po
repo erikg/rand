@@ -17,7 +17,7 @@ msgstr ""
 #: src/help.c:49
 #, c-format
 msgid ""
-"%s %s (C) 1998-2009 Erik Greenwald <erik@smluc.org>\n"
+"%s %s (C) 1998-2010 Erik Greenwald <erik@smluc.org>\n"
 "%s comes with ABSOLUTELY NO WARRANTY. Please read the GPL for details.\n"
 "\n"
 "Usage:\n"
@@ -25,7 +25,7 @@ msgid ""
 "\t%s [-lwvh] [-f <input file>] [-o <output file>] [-s <seed>]\n"
 "\n"
 msgstr ""
-"%s %s (C) 1998-2009 Erik Greenwald <erik@smluc.org>\n"
+"%s %s (C) 1998-2010 Erik Greenwald <erik@smluc.org>\n"
 "%s vem é distribuido sem NENHUMA GARANTIA. Por favor leia a GPL para obter "
 "maiores detalhes.\n"
 "\n"
@@ -47,9 +47,9 @@ msgstr ""
 
 #: src/help.c:74
 #, c-format
-msgid "%s %s (C) 1998-2009 Erik Greenwald <erik@smluc.org>\n"
+msgid "%s %s (C) 1998-2010 Erik Greenwald <erik@smluc.org>\n"
 msgstr ""
-"%s %s (C) 1998-2009 Erik Greenwald <erik@smluc.org>\n"
+"%s %s (C) 1998-2010 Erik Greenwald <erik@smluc.org>\n"
 "\n"
 
 #: src/options.c:72
