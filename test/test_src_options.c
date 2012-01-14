@@ -1,6 +1,3 @@
-/*
- * $Id: test_src_options.c,v 1.1 2004/02/18 01:32:59 erik Exp $
- */
 
 #include <stdio.h>
 #include <stdlib.h>

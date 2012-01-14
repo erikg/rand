@@ -1,6 +1,3 @@
-/*
- * $Id: test_rand.c,v 1.3 2004/02/18 03:29:35 erik Exp $
- */
 
 #include <stdio.h>
 #include <stdlib.h>

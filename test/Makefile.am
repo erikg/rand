@@ -18,8 +18,6 @@
 #                                                                      #
 ########################################################################
 
-# $Id: Makefile.am,v 1.10 2010/01/06 01:06:26 erik Exp $
-
 TESTS=test_rand
 noinst_PROGRAMS=test_rand
 rand_src = $(top_srcdir)/src/help.c $(top_srcdir)/src/options.c $(top_srcdir)/src/rand.c $(top_srcdir)/src/seed.c

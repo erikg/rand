@@ -18,8 +18,6 @@
 #                                                                      #
 ########################################################################
 
-# $Id: configure.ac,v 1.18 2010/01/06 01:06:25 erik Exp $
-
 AC_INIT
 AC_CONFIG_SRCDIR([src/rand.c])
 AM_CONFIG_HEADER(config.h)

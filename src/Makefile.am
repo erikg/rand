@@ -18,8 +18,6 @@
 #                                                                      #
 ########################################################################
 
-# $Id: Makefile.am,v 1.17 2010/01/06 01:06:26 erik Exp $
-
 bin_PROGRAMS = rand
 rand_SOURCES = main.c rand.c seed.c help.c options.c
 

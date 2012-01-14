@@ -23,10 +23,6 @@
  *
  ******************************************************************************/
 
-/*
- * $Id: rand.c,v 1.30 2010/01/06 01:06:26 erik Exp $
- */
-
 /* 
  * NOTE: the method I'm using to get a random number LOOKS ineffecient. But
  * that's on purpose. random number generators tend to make the most
