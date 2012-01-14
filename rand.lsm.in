@@ -4,8 +4,8 @@ Version:        @VERSION@
 Entered-date:   Jan 16 1998
 Description:    utility to display files or streams in random order
 Keywords:       random pipe sort shuffle order
-Author:         Erik Greenwald <erik@smluc.org> <erik@bz.bzflag.bz>
-Maintained-by:  Erik Greenwald <erik@smluc.org> <erik@bz.bzflag.bz>
+Author:         Erik Greenwald <erik@brlcad.org> <erik@bz.bzflag.bz>
+Maintained-by:  Erik Greenwald <erik@brlcad.org> <erik@bz.bzflag.bz>
 Primary-site:   http://bz.bzflag.bz/~erik/software.php?id=7
 Alternate-site:
 Original-site:  http://bz.bzflag.bz/~erik/software.php?id=7

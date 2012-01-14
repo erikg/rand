@@ -5,7 +5,7 @@
  *        blah | rand [-lw] [-o output file]
  *        rand [-lw] -f <file> [-o output file]
  *
- *     Copyright (C) 1998-2012 Erik Greenwald <erik@smluc.org>
+ *     Copyright (C) 1998-2012 Erik Greenwald <erik@brlcad.org>
  *
  *     This program is free software; you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
@@ -214,7 +214,7 @@ freetable (char **table, int size)
     * scramble function, for io_pipes and files (not parm).
     * @param method The method type, as defined in the enum.
     * @return Void Nothing.
-    * @author Erik Greenwald <erik@smluc.org>
+    * @author Erik Greenwald <erik@brlcad.org>
     * @remarks Thanks to Dr Eric Shade for helping out.
     */
 void

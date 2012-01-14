@@ -1,7 +1,7 @@
 Source: rand
 Section: text
 Priority: optional
-Maintainer: Erik Greenwald <erik@smluc.org>
+Maintainer: Erik Greenwald <erik@brlcad.org>
 Build-Depends: debhelper (>= 5), autotools-dev
 Standards-Version: 3.7.2
 
