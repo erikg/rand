@@ -1,12 +1,11 @@
 rand release notes. See the ChangeLog for more details.
 
-
-Nov 20 2007 - Version 1.9
+Apr 9, 2012 - Version 1.9
 * Fixed bug on FreeBSD where first line was always the same.
-* Bugs, memory leaks and overflows fixed.
-* Portability fixes.
 * Improved randomness for platforms withd rand48().
+* Portability fixes.
 * Fixed error in man page.
+* Bugs, memory leaks and overflows fixed.
 
 Aug 14, 2004 - Version 1.8
 * Bug fixes, internal improvements.
