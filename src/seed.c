@@ -89,7 +89,10 @@ old_seed ()
     sprintf (s, "/var/tmp/rand.%d", GETUID);
     if( (f = fopen (s, "r")) == NULL)
 	    return;
-    fscanf (f, "%u\n", &seed);
+    if(fscanf (f, "%u\n", &seed) != 1) {
+	fprintf(stderr, "Error reading old random seed\n");
+	return;
+    }
     fclose (f);
 #ifdef HAVE_DRAND48
     srand48 (seed);
