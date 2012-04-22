@@ -34,6 +34,10 @@
 #include <time.h>
 #include <sys/stat.h>
 
+#ifdef HAVE_UNISTD_H
+# include <unistd.h>
+#endif
+
 #ifdef ENABLE_NLS
 # include <libintl.h>
 #endif
