@@ -1,9 +1,9 @@
 Source: rand
 Section: text
 Priority: optional
-Maintainer: Erik Greenwald <erik@brlcad.org>
+Maintainer: Erik Greenwald <erik@elfga.com>
 Build-Depends: debhelper (>= 5), autotools-dev
-Standards-Version: 3.7.2
+Standards-Version: 3.9.2
 
 Package: rand
 Architecture: any
