@@ -24,13 +24,15 @@
 TEST=
 
 SUBDIRS = debian m4 src docs po $(TEST)
+RPMDIR = $(HOME)/rpmbuild
 
 .PHONY : rpm docs test indent lint grind hist histo histogram
 rpm: dist
-	cp $(PACKAGE)-$(VERSION).tar.gz /usr/src/rpm/SOURCES/
+	mkdir -p $(RPMDIR) $(RPMDIR)/SOURCES $(RPMDIR)/SRPMS $(RPMDIR)/RPMS $(RPMDIR)/RPMS/i386
+	cp $(PACKAGE)-$(VERSION).tar.gz $(RPMDIR)/SOURCES/
 	rpmbuild -ba $(PACKAGE).spec
-	cp /usr/src/rpm/RPMS/i386/$(PACKAGE)-$(VERSION)-*.i386.rpm .
-	cp /usr/src/rpm/SRPMS/$(PACKAGE)-$(VERSION)-*.src.rpm .
+	cp $(RPMDIR)/RPMS/i386/$(PACKAGE)-$(VERSION)-*.i386.rpm .
+	cp $(RPMDIR)/SRPMS/$(PACKAGE)-$(VERSION)-*.src.rpm .
 
 .PHONY : deb
 deb: dist
