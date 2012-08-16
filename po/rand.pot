@@ -1,14 +1,14 @@
-# rand English translation
-# Copyright (C) 2000-2012 Erik Greenwald.
-# This file is distributed under the same license as the rand package.
-# Erik Greenwald <erik@brlcad.org>, 2000
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Erik Greenwald
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: Erik Greenwald <erik@brlcad.org>\n"
-"POT-Creation-Date: 2012-01-14 08:41-0500\n"
+"POT-Creation-Date: 2012-08-16 11:01-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,12 +42,12 @@ msgstr ""
 msgid "%s %s (C) 1998-2012 Erik Greenwald <erik@brlcad.org>\n"
 msgstr ""
 
-#: src/options.c:68
+#: src/options.c:72
 #, c-format
 msgid "Cannot open %s for reading\n"
 msgstr ""
 
-#: src/options.c:76
+#: src/options.c:80
 #, c-format
 msgid "Cannot open %s for writing\n"
 msgstr ""
