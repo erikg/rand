@@ -18,10 +18,10 @@
 #                                                                      #
 ########################################################################
 
-AC_INIT
+AC_INIT([rand], [1.10])
 AC_CONFIG_SRCDIR([src/rand.c])
 AM_CONFIG_HEADER(config.h)
-AM_INIT_AUTOMAKE(rand, 1.9)
+AM_INIT_AUTOMAKE
 
 AC_DEFUN([SEARCH],[DIR="$1"
 AC_MSG_CHECKING([for $DIR])

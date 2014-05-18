@@ -23,8 +23,8 @@ rand_SOURCES = main.c rand.c seed.c help.c options.c
 
 noinst_HEADERS = rand.h seed.h help.h options.h
 
-localedir    = $(datadir)/locale
-INCLUDES     = -DLOCALEDIR=\"$(localedir)\"
+localedir= $(datadir)/locale
+AM_CPPFLAGS= -DLOCALEDIR=\"$(localedir)\"
 rand_LDADD=	$(LTLIBINTL)
 
 lint:
