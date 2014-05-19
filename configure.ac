@@ -1,6 +1,6 @@
 ########################################################################
 # rand                                                                 #
-# Copyright (C) 1998-2012 Erik Greenwald <erik@brlcad.org>              #
+# Copyright (C) 1998-2014 Erik Greenwald <erik@brlcad.org>              #
 #                                                                      #
 # This program is free software; you can redistribute it and/or modify #
 # it under the terms of the GNU General Public License as published by #
@@ -18,10 +18,10 @@
 #                                                                      #
 ########################################################################
 
-AC_INIT
+AC_INIT([rand], [1.10])
 AC_CONFIG_SRCDIR([src/rand.c])
 AM_CONFIG_HEADER(config.h)
-AM_INIT_AUTOMAKE(rand, 1.9)
+AM_INIT_AUTOMAKE
 
 AC_DEFUN([SEARCH],[DIR="$1"
 AC_MSG_CHECKING([for $DIR])
