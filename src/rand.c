@@ -238,7 +238,7 @@ scramble (char method, FILE * io_pipes[2])
 	if (size == 0)
 	    return;
 
-	table = malloc (size * sizeof (void *));
+	table = (char **)malloc (size * sizeof (void *));
 	if (table == NULL)
 	{
 	    printf ("%s", NOMEM);
