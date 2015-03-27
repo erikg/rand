@@ -1,10 +1,10 @@
-This package was debianized by Erik Greenwald <erik@brlcad.org> on
+This package was debianized by Erik Greenwald <erik@elfga.com> on
 Wed, 17 May 2000 20:06:11 -0500.
 
-It was downloaded from http://bz.bzflag.bz/~erik/files
+It was downloaded from http://elfga.com/~erik/files
 
-Upstream Author: Erik Greenwald <erik@brlcad.org>
-Copyright: Copyright (C) 1998-2014 Erik Greenwald
+Upstream Author: Erik Greenwald <erik@elfga.com>
+Copyright: Copyright (C) 1998-2015 Erik Greenwald
 
 License:
 
@@ -25,6 +25,6 @@ License:
 On Debian systems, the complete text of the GNU General
 Public License can be found in `/usr/share/common-licenses/GPL'.
 
-The Debian packaging is (C) 2000-2014, Erik Greenwald <erik@brlcad.org> and
+The Debian packaging is (C) 2000-2015, Erik Greenwald <erik@elfga.com> and
 is licensed under the GPL, see above.
 

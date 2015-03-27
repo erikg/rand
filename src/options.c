@@ -5,7 +5,7 @@
  *        blah | rand [-lw] [-o output file]
  *        rand [-lw] -f <file> [-o output file]
  *
- *     Copyright (C) 1998-2014 Erik Greenwald <erik@brlcad.org>
+ *     Copyright (C) 1998-2015 Erik Greenwald <erik@elfga.com>
  *
  *     This program is free software; you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
@@ -52,7 +52,7 @@
  * @param argv The arguments as char**.
  * @param io_pipes Pipe ends.
  * @return The method type.
- * @author Erik Greenwald <erik@brlcad.org>
+ * @author Erik Greenwald <erik@elfga.com>
  */
 unsigned char
 options (int argc, char **argv, FILE * io_pipes[2])

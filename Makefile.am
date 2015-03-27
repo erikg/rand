@@ -1,6 +1,6 @@
 ########################################################################
 # rand                                                                 #
-# Copyright (C) 1998-2014 Erik Greenwald <erik@brlcad.org>              #
+# Copyright (C) 1998-2015 Erik Greenwald <erik@elfga.com>              #
 #                                                                      #
 # This program is free software; you can redistribute it and/or modify #
 # it under the terms of the GNU General Public License as published by #

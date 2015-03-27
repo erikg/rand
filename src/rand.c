@@ -5,7 +5,7 @@
  *        blah | rand [-lw] [-o output file]
  *        rand [-lw] -f <file> [-o output file]
  *
- *     Copyright (C) 1998-2014 Erik Greenwald <erik@brlcad.org>
+ *     Copyright (C) 1998-2015 Erik Greenwald <erik@elfga.com>
  *
  *     This program is free software; you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
@@ -57,6 +57,8 @@
 
 #ifdef ENABLE_NLS
 # include <libintl.h>
+#else
+# define gettext(x) x
 #endif
 
 #include "help.h"
@@ -214,7 +216,7 @@ freetable (char **table, int size)
     * scramble function, for io_pipes and files (not parm).
     * @param method The method type, as defined in the enum.
     * @return Void Nothing.
-    * @author Erik Greenwald <erik@brlcad.org>
+    * @author Erik Greenwald <erik@elfga.com>
     * @remarks Thanks to Dr Eric Shade for helping out.
     */
 void

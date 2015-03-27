@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: Erik Greenwald <erik@brlcad.org>\n"
+"Report-Msgid-Bugs-To: Erik Greenwald <erik@elfga.com>\n"
 "POT-Creation-Date: 2012-08-16 11:01-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
@@ -20,7 +20,7 @@ msgstr ""
 #: src/help.c:45
 #, c-format
 msgid ""
-"%s %s (C) 1998-2014 Erik Greenwald <erik@brlcad.org>\n"
+"%s %s (C) 1998-2015 Erik Greenwald <erik@elfga.com>\n"
 "%s comes with ABSOLUTELY NO WARRANTY. Please read the GPL for details.\n"
 "\n"
 "Usage:\n"
@@ -39,7 +39,7 @@ msgstr ""
 
 #: src/help.c:70
 #, c-format
-msgid "%s %s (C) 1998-2014 Erik Greenwald <erik@brlcad.org>\n"
+msgid "%s %s (C) 1998-2015 Erik Greenwald <erik@elfga.com>\n"
 msgstr ""
 
 #: src/options.c:72
