@@ -5,7 +5,7 @@
  *        blah | rand [-lw] [-o output file]
  *        rand [-lw] -f <file> [-o output file]
  *
- *     Copyright (C) 1998-2015 Erik Greenwald <erik@elfga.com>
+ *     Copyright (C) 1998-2017 Erik Greenwald <erik@elfga.com>
  *
  *     This program is free software; you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
@@ -43,7 +43,7 @@ void
 show_help ()
 {
     fprintf (stdout, gettext ("\
-%s %s (C) 1998-2015 Erik Greenwald <erik@elfga.com>\n\
+%s %s (C) 1998-2017 Erik Greenwald <erik@elfga.com>\n\
 %s comes with ABSOLUTELY NO WARRANTY. Please read the GPL for details.\n\
 \n\
 Usage:\n\
@@ -67,6 +67,6 @@ show_version ()
 {
     fprintf (stdout,
 	gettext
-	("%s %s (C) 1998-2015 Erik Greenwald <erik@elfga.com>\n"),
+	("%s %s (C) 1998-2017 Erik Greenwald <erik@elfga.com>\n"),
 	PACKAGE, VERSION);
 }
